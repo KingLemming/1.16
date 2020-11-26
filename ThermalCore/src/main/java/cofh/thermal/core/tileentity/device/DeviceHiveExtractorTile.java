@@ -79,7 +79,7 @@ public class DeviceHiveExtractorTile extends ThermalTileBase {
     protected void updateActiveState() {
 
         boolean curActive = isActive;
-        isActive = redstoneControl().getState() && world.getBlockState(pos.up()).getBlock() instanceof BeehiveBlock;
+        isActive = redstoneControl().getState() && world.getBlockState(pos.up()).hasProperty(BeehiveBlock.HONEY_LEVEL);
         updateActiveState(curActive);
     }
 
