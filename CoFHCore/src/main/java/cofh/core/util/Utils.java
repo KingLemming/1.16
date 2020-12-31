@@ -38,6 +38,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -54,6 +55,11 @@ public class Utils {
 
     private Utils() {
 
+    }
+
+    public static boolean isModLoaded(String modid) {
+
+        return ModList.get().isLoaded(modid);
     }
 
     public static boolean isClientWorld(World world) {

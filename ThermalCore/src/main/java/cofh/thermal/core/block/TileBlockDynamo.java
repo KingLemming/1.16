@@ -1,6 +1,6 @@
 package cofh.thermal.core.block;
 
-import cofh.core.block.TileBlock6Way;
+import cofh.core.block.TileBlockActive6Way;
 import cofh.core.tileentity.TileCoFH;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 import static cofh.core.util.constants.Constants.FACING_ALL;
 
-public class TileBlockDynamo extends TileBlock6Way {
+public class TileBlockDynamo extends TileBlockActive6Way {
 
     private static final VoxelShape[] BASE_SHAPE = new VoxelShape[]{
             Block.makeCuboidShape(0, 6, 0, 16, 16, 16),

@@ -30,6 +30,8 @@ public abstract class CellTileBase extends ThermalTileBase implements IReconfigu
     public int amountInput;
     public int amountOutput;
 
+    protected int prevLight;
+
     protected ReconfigControlModule reconfigControl = new CellReconfigControlModule(this);
 
     public CellTileBase(TileEntityType<?> tileEntityTypeIn) {
@@ -41,9 +43,15 @@ public abstract class CellTileBase extends ThermalTileBase implements IReconfigu
     public TileCoFH worldContext(BlockState state, IBlockReader world) {
 
         reconfigControl.setFacing(state.get(FACING_HORIZONTAL));
-        updateSidedHandlers();
+        updateHandlers();
 
         return this;
+    }
+
+    @Override
+    public int getComparatorInputOverride() {
+
+        return compareTracker;
     }
 
     @Override
@@ -96,12 +104,10 @@ public abstract class CellTileBase extends ThermalTileBase implements IReconfigu
             }
             reconfigControl.setSideConfig(sides);
         }
-        updateSidedHandlers();
+        updateHandlers();
     }
 
-    protected void updateTrackers(boolean send) {
-
-    }
+    protected abstract void updateTrackers(boolean send);
 
     public int getLevelTracker() {
 
@@ -115,6 +121,7 @@ public abstract class CellTileBase extends ThermalTileBase implements IReconfigu
 
         super.onDataPacket(net, pkt);
 
+        world.getChunkProvider().getLightManager().checkBlock(pos);
         ModelDataManager.requestModelDataRefresh(this);
     }
 
@@ -160,6 +167,7 @@ public abstract class CellTileBase extends ThermalTileBase implements IReconfigu
 
         buffer.writeInt(compareTracker);
         buffer.writeInt(levelTracker);
+        buffer.writeInt(prevLight);
 
         return buffer;
     }
@@ -202,7 +210,11 @@ public abstract class CellTileBase extends ThermalTileBase implements IReconfigu
 
         compareTracker = buffer.readInt();
         levelTracker = buffer.readInt();
+        prevLight = buffer.readInt();
 
+        if (prevLight != getLightValue()) {
+            world.getChunkProvider().getLightManager().checkBlock(pos);
+        }
         ModelDataManager.requestModelDataRefresh(this);
     }
     // endregion
@@ -220,7 +232,7 @@ public abstract class CellTileBase extends ThermalTileBase implements IReconfigu
         amountOutput = nbt.getInt(TAG_AMOUNT_OUT);
 
         updateTrackers(false);
-        updateSidedHandlers();
+        updateHandlers();
     }
 
     @Override
@@ -261,15 +273,8 @@ public abstract class CellTileBase extends ThermalTileBase implements IReconfigu
     @Override
     public void onControlUpdate() {
 
-        updateSidedHandlers();
         updateTrackers(false);
         super.onControlUpdate();
-    }
-    // endregion
-
-    // region CAPABILITIES
-    protected void updateSidedHandlers() {
-
     }
     // endregion
 

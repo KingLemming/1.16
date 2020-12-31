@@ -2,9 +2,9 @@
   "name": "Alchemical Amplifier",
   "icon": "thermal:potion_amplifier_augment",
   "category": "thermal:augments",
-
   "read_by_default": true,
-  "flag": "mod:thermal_expansion",
+  "flag": "mod:thermal_innovation",
+
   "pages": [
     {
       "type": "crafting",

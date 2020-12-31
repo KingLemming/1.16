@@ -1,5 +1,6 @@
 package cofh.thermal.core.entity.monster;
 
+import cofh.thermal.core.common.ThermalConfig;
 import cofh.thermal.core.common.ThermalFlags;
 import cofh.thermal.core.entity.projectile.BlitzProjectileEntity;
 import net.minecraft.entity.EntityType;
@@ -81,7 +82,7 @@ public class BlitzEntity extends MonsterEntity {
     @Override
     protected SoundEvent getAmbientSound() {
 
-        return SOUND_BLITZ_AMBIENT;
+        return ThermalConfig.mobAmbientSounds ? SOUND_BLITZ_AMBIENT : null;
     }
 
     @Override

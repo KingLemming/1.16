@@ -51,6 +51,9 @@ public class ThermalFlags {
 
     public static String FLAG_TOOL_COMPONENTS = "tool_components";
 
+    public static String FLAG_COINS = "coins";
+    public static String FLAG_PLATES = "plates";
+
     public static String FLAG_PHYTOGRO_EXPLOSIVES = "phytogro_explosives";
     public static String FLAG_ELEMENTAL_EXPLOSIVES = "elemental_explosives";
     public static String FLAG_NUCLEAR_EXPLOSIVES = "nuclear_explosives";
@@ -68,6 +71,8 @@ public class ThermalFlags {
 
     public static String FLAG_RESOURCE_RUBY = "ruby";
     public static String FLAG_RESOURCE_SAPPHIRE = "sapphire";
+
+    public static String FLAG_RESOURCE_OIL = "oil";
 
     public static String FLAG_RESOURCE_BRONZE = "bronze";
     public static String FLAG_RESOURCE_ELECTRUM = "electrum";
@@ -93,6 +98,8 @@ public class ThermalFlags {
 
     public static String FLAG_GEN_RUBY = "gen_ruby";
     public static String FLAG_GEN_SAPPHIRE = "gen_sapphire";
+
+    public static String FLAG_GEN_OIL = "gen_oil";
     // endregion
 
     static {

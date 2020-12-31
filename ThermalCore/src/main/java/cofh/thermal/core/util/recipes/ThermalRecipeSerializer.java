@@ -80,7 +80,6 @@ public class ThermalRecipeSerializer<T extends ThermalRecipe> extends ForgeRegis
 
         int energy = buffer.readVarInt();
         float experience = buffer.readFloat();
-        int minTicks = buffer.readVarInt();
 
         int numInputItems = buffer.readVarInt();
         ArrayList<Ingredient> inputItems = new ArrayList<>(numInputItems);

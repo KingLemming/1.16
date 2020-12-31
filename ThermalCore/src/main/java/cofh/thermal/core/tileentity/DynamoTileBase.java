@@ -60,6 +60,7 @@ public abstract class DynamoTileBase extends ThermalTileBase implements ITickabl
     public TileCoFH worldContext(BlockState state, IBlockReader world) {
 
         facing = state.get(FACING_ALL);
+        updateHandlers();
 
         return this;
     }
@@ -169,6 +170,7 @@ public abstract class DynamoTileBase extends ThermalTileBase implements ITickabl
     protected void updateFacing() {
 
         facing = getBlockState().get(FACING_ALL);
+        updateHandlers();
     }
 
     // endregion
@@ -262,6 +264,8 @@ public abstract class DynamoTileBase extends ThermalTileBase implements ITickabl
         coolantMax = nbt.getInt(TAG_COOLANT_MAX);
         coolant = nbt.getInt(TAG_COOLANT);
         processTick = nbt.getInt(TAG_PROCESS_TICK);
+
+        updateHandlers();
     }
 
     @Override
@@ -335,12 +339,14 @@ public abstract class DynamoTileBase extends ThermalTileBase implements ITickabl
     // endregion
 
     // region CAPABILITIES
-    // TODO: Return empty if non-RF coil installed.
-    //    @Override
-    //    protected <T> LazyOptional<T> getEnergyCapability(@Nullable Direction side) {
-    //
-    //        return LazyOptional.empty();
-    //    }
+    @Override
+    protected <T> LazyOptional<T> getEnergyCapability(@Nullable Direction side) {
+
+        if (side == null || side.equals(getFacing())) {
+            return super.getEnergyCapability(side);
+        }
+        return LazyOptional.empty();
+    }
 
     @Override
     protected <T> LazyOptional<T> getItemHandlerCapability(@Nullable Direction side) {

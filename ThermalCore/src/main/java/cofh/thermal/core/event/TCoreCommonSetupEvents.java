@@ -97,6 +97,7 @@ public class TCoreCommonSetupEvents {
     public static void biomeLoadingAdd(final BiomeLoadingEvent event) {
 
         ThermalBiomeFeatures.addOreGeneration(event);
+        ThermalBiomeFeatures.addOilGeneration(event);
         ThermalBiomeFeatures.addHostileSpawns(event);
     }
     // endregion

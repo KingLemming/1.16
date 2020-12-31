@@ -318,7 +318,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("XXX")
                 .patternLine("X X")
                 .addCriterion("has_fabric", hasItem(beekeeperFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_BEEKEEPER_CHESTPLATE);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -327,7 +327,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("XXX")
                 .patternLine("XXX")
                 .addCriterion("has_fabric", hasItem(beekeeperFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_BEEKEEPER_LEGGINGS);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -336,7 +336,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("X X")
                 .patternLine("X X")
                 .addCriterion("has_fabric", hasItem(beekeeperFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_BEEKEEPER_BOOTS);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -345,7 +345,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("X X")
                 .patternLine("L L")
                 .addCriterion("has_fabric", hasItem(beekeeperFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_DIVING_HELMET);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -355,7 +355,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("XIX")
                 .patternLine("IGI")
                 .addCriterion("has_fabric", hasItem(divingFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_DIVING_CHESTPLATE);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -365,7 +365,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IXI")
                 .patternLine("XXX")
                 .addCriterion("has_fabric", hasItem(divingFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_DIVING_LEGGINGS);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -375,7 +375,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("I I")
                 .patternLine("X X")
                 .addCriterion("has_fabric", hasItem(divingFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_DIVING_BOOTS);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -385,7 +385,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("X X")
                 .patternLine("LIL")
                 .addCriterion("has_fabric", hasItem(divingFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_HAZMAT_HELMET);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -395,7 +395,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("XIX")
                 .patternLine("IGI")
                 .addCriterion("has_fabric", hasItem(hazmatFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_HAZMAT_CHESTPLATE);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -405,7 +405,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IXI")
                 .patternLine("XXX")
                 .addCriterion("has_fabric", hasItem(hazmatFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_HAZMAT_LEGGINGS);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -415,7 +415,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("I I")
                 .patternLine("X X")
                 .addCriterion("has_fabric", hasItem(hazmatFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get(ID_HAZMAT_BOOTS);
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -425,7 +425,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("X X")
                 .patternLine("LRL")
                 .addCriterion("has_fabric", hasItem(hazmatFabric))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
     }
 
     private void generateAugmentRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -446,7 +446,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IXI")
                 .patternLine(" G ")
                 .addCriterion("has_redstone_servo", hasItem(redstoneServo))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("dynamo_output_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -457,7 +457,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("SXS")
                 .patternLine(" G ")
                 .addCriterion("has_hardened_glass", hasItem(ItemTagsCoFH.HARDENED_GLASS))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("dynamo_fuel_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -468,7 +468,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("LXL")
                 .patternLine(" G ")
                 .addCriterion("has_hardened_glass", hasItem(ItemTagsCoFH.HARDENED_GLASS))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("machine_speed_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -479,7 +479,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("EXE")
                 .patternLine(" L ")
                 .addCriterion("has_rf_coil", hasItem(rfCoil))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("machine_output_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -490,7 +490,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IXI")
                 .patternLine(" B ")
                 .addCriterion("has_redstone_servo", hasItem(redstoneServo))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("machine_catalyst_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -501,7 +501,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("LXL")
                 .patternLine(" C ")
                 .addCriterion("has_redstone_servo", hasItem(redstoneServo))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("machine_cycle_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -513,7 +513,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("CXC")
                 .patternLine("SGS")
                 .addCriterion("has_redstone_servo", hasItem(redstoneServo))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("potion_amplifier_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -524,7 +524,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IXI")
                 .patternLine(" G ")
                 .addCriterion("has_hardened_glass", hasItem(ItemTagsCoFH.HARDENED_GLASS))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("potion_duration_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -535,7 +535,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IXI")
                 .patternLine(" G ")
                 .addCriterion("has_hardened_glass", hasItem(ItemTagsCoFH.HARDENED_GLASS))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("rf_coil_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -546,7 +546,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("SXS")
                 .patternLine(" G ")
                 .addCriterion("has_rf_coil", hasItem(rfCoil))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("rf_coil_storage_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -557,7 +557,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("GXG")
                 .patternLine(" G ")
                 .addCriterion("has_rf_coil", hasItem(rfCoil))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("rf_coil_xfer_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -568,7 +568,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("SXS")
                 .patternLine(" G ")
                 .addCriterion("has_rf_coil", hasItem(rfCoil))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("fluid_tank_augment");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -579,7 +579,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IXI")
                 .patternLine("RIR")
                 .addCriterion("has_hardened_glass", hasItem(ItemTagsCoFH.HARDENED_GLASS))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("upgrade_augment_1");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -591,7 +591,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("RXR")
                 .patternLine("IGI")
                 .addCriterion("has_invar_ingot", hasItem(ItemTagsCoFH.INGOTS_INVAR))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("upgrade_augment_2");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -603,7 +603,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("RXR")
                 .patternLine("IGI")
                 .addCriterion("has_electrum_ingot", hasItem(ItemTagsCoFH.INGOTS_ELECTRUM))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("upgrade_augment_3");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -615,7 +615,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("RXR")
                 .patternLine("IGI")
                 .addCriterion("has_enderium_ingot", hasItem(ItemTagsCoFH.INGOTS_ENDERIUM))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
     }
 
     private void generateBasicRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -632,7 +632,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine(" G ")
                 .patternLine(" I ")
                 .addCriterion("has_iron_ingot", hasItem(Tags.Items.INGOTS_IRON))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
         //                .key('I', Tags.Items.INGOTS_IRON)
         //                .key('T', CoFHTags.Items.INGOTS_TIN)
         //                .patternLine("I I")
@@ -648,7 +648,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .addIngredient(Tags.Items.DUSTS_REDSTONE)
                 .addIngredient(Tags.Items.DUSTS_REDSTONE)
                 .addCriterion("has_redstone", hasItem(Tags.Items.DUSTS_REDSTONE))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("lock");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -658,7 +658,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("iSi")
                 .patternLine("iii")
                 .addCriterion("has_signalum_ingot", hasItem(ItemTagsCoFH.INGOTS_SIGNALUM))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         result = reg.get("detonator");
         ShapedRecipeBuilder.shapedRecipe(result)
@@ -669,7 +669,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IGI")
                 .patternLine("III")
                 .addCriterion("has_signalum_ingot", hasItem(ItemTagsCoFH.INGOTS_SIGNALUM))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+                .build(consumer, this.modid + ":" + folder + "/" + name(result));
 
         //        ShapedRecipeBuilder.shapedRecipe(reg.get("rf_potato"))
         //                .key('D', Tags.Items.DUSTS_REDSTONE)
@@ -680,7 +680,7 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
         //                .patternLine("RPR")
         //                .patternLine("DLD")
         //                .addCriterion("has_potato", hasItem(Tags.Items.CROPS_POTATO))
-        //                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath());
+        //                .build(consumer, this.modid + ":" + folder + "/" + path(result));
 
         ShapelessRecipeBuilder.shapelessRecipe(reg.get("basalz_powder"), 2)
                 .addIngredient(reg.get("basalz_rod"))
@@ -734,113 +734,113 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
         //        ShapelessRecipeBuilder.shapelessRecipe(reg.get(ID_WHITE_ROCKWOOL))
         //                .addIngredient(rockwool)
         //                .addIngredient(Tags.Items.DYES_WHITE)
-        //                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
+        //                .addCriterion("has_" + path(rockwool), hasItem(rockwool))
         //                .build(consumer);
 
         result = reg.get(ID_ORANGE_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_ORANGE)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_MAGENTA_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_MAGENTA)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_LIGHT_BLUE_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_LIGHT_BLUE)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_YELLOW_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_YELLOW)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_LIME_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_LIME)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_PINK_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_PINK)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_GRAY_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_GRAY)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_LIGHT_GRAY_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_LIGHT_GRAY)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_CYAN_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_CYAN)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_PURPLE_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_PURPLE)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_BLUE_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_BLUE)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_BROWN_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_BROWN)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_GREEN_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_GREEN)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_RED_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_RED)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
 
         result = reg.get(ID_BLACK_ROCKWOOL);
         ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(rockwool)
                 .addIngredient(Tags.Items.DYES_BLACK)
-                .addCriterion("has_" + rockwool.getRegistryName().getPath(), hasItem(rockwool))
-                .build(consumer, this.modid + ":" + folder + "/" + result.getRegistryName().getPath() + "_from_dye");
+                .addCriterion("has_" + name(rockwool), hasItem(rockwool))
+                .build(consumer, this.modid + ":" + folder + "/" + name(result) + "_from_dye");
     }
 
     private void generateComponentRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -989,22 +989,24 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
         ShapedRecipeBuilder.shapedRecipe(reg.get(ID_ENERGY_CELL))
                 .key('C', energyCellFrame)
                 .key('I', Tags.Items.INGOTS_IRON)
-                .key('R', Items.REDSTONE_BLOCK)
                 .key('P', rfCoil)
-                .patternLine(" R ")
+                .key('R', reg.get("cured_rubber"))
+                .key('X', Items.REDSTONE_BLOCK)
+                .patternLine("RXR")
                 .patternLine("ICI")
-                .patternLine(" P ")
+                .patternLine("RPR")
                 .addCriterion("has_energy_cell_frame", hasItem(energyCellFrame))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(reg.get(ID_FLUID_CELL))
                 .key('C', fluidCellFrame)
                 .key('I', Tags.Items.INGOTS_IRON)
-                .key('R', ItemTagsCoFH.HARDENED_GLASS)
                 .key('P', redstoneServo)
-                .patternLine(" R ")
+                .key('R', reg.get("cured_rubber"))
+                .key('X', ItemTagsCoFH.HARDENED_GLASS)
+                .patternLine("RXR")
                 .patternLine("ICI")
-                .patternLine(" P ")
+                .patternLine("RPR")
                 .addCriterion("has_fluid_cell_frame", hasItem(fluidCellFrame))
                 .build(consumer);
 

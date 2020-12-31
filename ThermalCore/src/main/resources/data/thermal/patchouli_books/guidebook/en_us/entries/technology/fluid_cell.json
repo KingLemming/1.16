@@ -1,0 +1,25 @@
+{
+  "name": "Fluid Cell",
+  "icon": "thermal:fluid_cell",
+  "category": "thermal:technology",
+  "read_by_default": true,
+  "flag": "mod:thermal_expansion",
+
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Fluid Cell can be used to store and distribute fluids. It can only store one fluid at a time. Similar to $(l:thermal:technology/machines/introduction)machines$(/l), each side can be configured to in/output. Unlike machines, the Fluid Cell always auto-outputs and never auto-inputs."
+    },
+    {
+      "type": "crafting",
+      "recipe": "thermal:fluid_cell_frame",
+      "recipe2": "thermal:fluid_cell"
+    },
+    {
+      "type": "text",
+      "title": "Augment Compatibility",
+      "text": "$(li)$(l:thermal:technology/augments/fluid_tank)Expanded Tank Construction$(/l)"
+    }
+
+  ]
+} 

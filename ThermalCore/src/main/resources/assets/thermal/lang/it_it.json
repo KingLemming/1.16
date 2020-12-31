@@ -349,7 +349,7 @@
 
    "item.thermal.fluid_tank_creative_augment": "Costruzione di serbatoio creativo",
   "item.thermal.fluid_tank_creative_augment.desc": "Fluidi funzionalmente illimitati.",
-  
+
   "item.thermal.machine_catalyst_augment": "Camera di reclamazione catalitica",
   "item.thermal.machine_cycle_augment": "Elaborazione ciclica",
   "item.thermal.machine_cycle_augment.desc": "I prodotti potrebbero essere trasferiti all'input alla fine del processo.",
@@ -386,7 +386,6 @@
   "item.thermal.xp_storage_augment": "Concentratore di conoscenza",
   "item.thermal.xp_storage_augment.desc": "Permette di immagazzinare e recuperare XP.",
 
-
   "_comment": "========================================================================================================",
   "_comment": "Thermal Core - External",
   "_comment": "These 'live' in Thermal Core but are non-default and registered from multiple possible modules.",
@@ -418,7 +417,7 @@
   "info.thermal.device_potion_diffuser.0": "Diffonde pozioni nella zona vicina.",
   "info.thermal.device_potion_diffuser.1": "Usa reagenti per aumentare l'efficacia.",
   "info.thermal.device_potion_diffuser.2": "Respira profondamente.",
-
+  
   "info.thermal.device_rock_gen.0": "Genera vari tipi di pietra.",
   "info.thermal.device_rock_gen.1": "Richiede una fonte di lava adiacente e del raffredamento.",
   "info.thermal.device_rock_gen.2": "Are you ready to rock?",

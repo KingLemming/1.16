@@ -1,9 +1,9 @@
 {
   "name": "FluxoMagnet",
   "icon": "thermal:flux_magnet",
+  "category": "thermal:tools",
   "read_by_default": true,
   "flag": "mod:thermal_innovation",
-  "category": "thermal:tools",
 
   "pages": [
     {

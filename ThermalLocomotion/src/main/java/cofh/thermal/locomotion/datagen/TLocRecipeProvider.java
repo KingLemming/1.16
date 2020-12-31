@@ -42,7 +42,7 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("GGG")
                 .patternLine("GCG")
                 .patternLine("PPP")
-                .addCriterion("has_" + Items.MINECART.getRegistryName().getPath(), hasItem(Items.MINECART))
+                .addCriterion("has_" + name(Items.MINECART), hasItem(Items.MINECART))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(ITEMS.get(ID_PHYTO_TNT_CART))
@@ -50,7 +50,7 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .key('B', Items.MINECART)
                 .patternLine("A")
                 .patternLine("B")
-                .addCriterion("has_" + Items.MINECART.getRegistryName().getPath(), hasItem(Items.MINECART))
+                .addCriterion("has_" + name(Items.MINECART), hasItem(Items.MINECART))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(ITEMS.get(ID_FIRE_TNT_CART))
@@ -58,7 +58,7 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .key('B', Items.MINECART)
                 .patternLine("A")
                 .patternLine("B")
-                .addCriterion("has_" + Items.MINECART.getRegistryName().getPath(), hasItem(Items.MINECART))
+                .addCriterion("has_" + name(Items.MINECART), hasItem(Items.MINECART))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(ITEMS.get(ID_EARTH_TNT_CART))
@@ -66,7 +66,7 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .key('B', Items.MINECART)
                 .patternLine("A")
                 .patternLine("B")
-                .addCriterion("has_" + Items.MINECART.getRegistryName().getPath(), hasItem(Items.MINECART))
+                .addCriterion("has_" + name(Items.MINECART), hasItem(Items.MINECART))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(ITEMS.get(ID_ICE_TNT_CART))
@@ -74,7 +74,7 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .key('B', Items.MINECART)
                 .patternLine("A")
                 .patternLine("B")
-                .addCriterion("has_" + Items.MINECART.getRegistryName().getPath(), hasItem(Items.MINECART))
+                .addCriterion("has_" + name(Items.MINECART), hasItem(Items.MINECART))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(ITEMS.get(ID_LIGHTNING_TNT_CART))
@@ -82,7 +82,7 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .key('B', Items.MINECART)
                 .patternLine("A")
                 .patternLine("B")
-                .addCriterion("has_" + Items.MINECART.getRegistryName().getPath(), hasItem(Items.MINECART))
+                .addCriterion("has_" + name(Items.MINECART), hasItem(Items.MINECART))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(ITEMS.get(ID_NUKE_TNT_CART))
@@ -90,17 +90,17 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .key('B', Items.MINECART)
                 .patternLine("A")
                 .patternLine("B")
-                .addCriterion("has_" + Items.MINECART.getRegistryName().getPath(), hasItem(Items.MINECART))
+                .addCriterion("has_" + name(Items.MINECART), hasItem(Items.MINECART))
                 .build(consumer);
     }
 
     // region HELPERS
     private void registerRailRecipes(Consumer<IFinishedRecipe> consumer) {
 
-        String rail = Items.RAIL.getRegistryName().getPath();
-        String activatorRail = Items.ACTIVATOR_RAIL.getRegistryName().getPath();
-        String detectorRail = Items.DETECTOR_RAIL.getRegistryName().getPath();
-        String poweredRail = Items.POWERED_RAIL.getRegistryName().getPath();
+        String rail = name(Items.RAIL);
+        String activatorRail = name(Items.ACTIVATOR_RAIL);
+        String detectorRail = name(Items.DETECTOR_RAIL);
+        String poweredRail = name(Items.POWERED_RAIL);
 
         ShapedRecipeBuilder.shapedRecipe(BLOCKS.get(ID_CROSSOVER_RAIL))
                 .key('I', Items.STICK)
@@ -125,7 +125,7 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .key('X', BLOCKS.get(ID_PRISMARINE_RAIL))
                 .patternLine("XI")
                 .patternLine("IX")
-                .addCriterion("has_" + BLOCKS.get(ID_PRISMARINE_RAIL).getRegistryName().getPath(), hasItem(ITEMS.get(ID_PRISMARINE_RAIL)))
+                .addCriterion("has_" + name(BLOCKS.get(ID_PRISMARINE_RAIL)), hasItem(ITEMS.get(ID_PRISMARINE_RAIL)))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BLOCKS.get(ID_PRISMARINE_ACTIVATOR_RAIL), 6)
@@ -172,7 +172,7 @@ public class TLocRecipeProvider extends RecipeProviderCoFH {
                 .key('X', BLOCKS.get(ID_LUMIUM_RAIL))
                 .patternLine("XI")
                 .patternLine("IX")
-                .addCriterion("has_" + BLOCKS.get(ID_LUMIUM_RAIL).getRegistryName().getPath(), hasItem(ITEMS.get(ID_LUMIUM_RAIL)))
+                .addCriterion("has_" + name(BLOCKS.get(ID_LUMIUM_RAIL)), hasItem(ITEMS.get(ID_LUMIUM_RAIL)))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BLOCKS.get(ID_LUMIUM_ACTIVATOR_RAIL), 6)

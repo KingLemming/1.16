@@ -27,16 +27,15 @@ import net.minecraftforge.client.model.data.ModelDataMap;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.templates.EmptyFluidHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.EmptyHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import static cofh.core.client.renderer.model.ModelUtils.FLUID;
 import static cofh.core.client.renderer.model.ModelUtils.SIDES;
-import static cofh.core.util.StorageGroup.*;
+import static cofh.core.util.StorageGroup.INPUT;
+import static cofh.core.util.StorageGroup.OUTPUT;
 import static cofh.core.util.constants.Constants.DIRECTIONS;
 import static cofh.core.util.constants.Constants.FACING_HORIZONTAL;
 import static cofh.core.util.constants.NBTTags.*;
@@ -61,7 +60,7 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
     public TileCoFH worldContext(BlockState state, IBlockReader world) {
 
         reconfigControl.setFacing(state.get(FACING_HORIZONTAL));
-        updateSidedHandlers();
+        updateHandlers();
 
         return this;
     }
@@ -78,12 +77,12 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
     public void remove() {
 
         super.remove();
-        for (LazyOptional<?> handler : sidedItemCaps) {
-            handler.invalidate();
-        }
-        for (LazyOptional<?> handler : sidedFluidCaps) {
-            handler.invalidate();
-        }
+
+        inputItemCap.invalidate();
+        outputItemCap.invalidate();
+
+        inputFluidCap.invalidate();
+        outputFluidCap.invalidate();
     }
 
     @Nonnull
@@ -124,7 +123,7 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
             }
             reconfigControl.setSideConfig(sides);
         }
-        updateSidedHandlers();
+        updateHandlers();
     }
 
     protected void chargeEnergy() {
@@ -273,7 +272,7 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
         inputTracker = nbt.getInt(TAG_TRACK_IN);
         outputTracker = nbt.getInt(TAG_TRACK_OUT);
 
-        updateSidedHandlers();
+        updateHandlers();
     }
 
     @Override
@@ -306,77 +305,42 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
     }
     // endregion
 
-    // region ITileCallback
-    @Override
-    public void onControlUpdate() {
-
-        updateSidedHandlers();
-        super.onControlUpdate();
-    }
-    // endregion
-
     // region CAPABILITIES
-    protected final LazyOptional<?>[] sidedItemCaps = new LazyOptional<?>[]{
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty()
-    };
+    protected LazyOptional<?> inputItemCap = LazyOptional.empty();
+    protected LazyOptional<?> outputItemCap = LazyOptional.empty();
 
-    protected final LazyOptional<?>[] sidedFluidCaps = new LazyOptional<?>[]{
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty()
-    };
+    protected LazyOptional<?> inputFluidCap = LazyOptional.empty();
+    protected LazyOptional<?> outputFluidCap = LazyOptional.empty();
 
-    protected void updateSidedHandlers() {
+    protected void updateHandlers() {
+
+        super.updateHandlers();
 
         // ITEMS
-        for (int i = 0; i < 6; ++i) {
-            sidedItemCaps[i].invalidate();
+        LazyOptional<?> prevItemInputCap = inputItemCap;
+        LazyOptional<?> prevItemOutputCap = outputItemCap;
 
-            IItemHandler handler;
-            switch (reconfigControl.getSideConfig(i)) {
-                case SIDE_NONE:
-                    handler = EmptyHandler.INSTANCE;
-                    break;
-                case SIDE_INPUT:
-                    handler = inventory.getHandler(INPUT);
-                    break;
-                case SIDE_OUTPUT:
-                    handler = inventory.getHandler(OUTPUT);
-                    break;
-                default:
-                    handler = inventory.getHandler(ACCESSIBLE);
-            }
-            sidedItemCaps[i] = LazyOptional.of(() -> handler);
-        }
+        IItemHandler inputInvHandler = inventory.getHandler(INPUT);
+        IItemHandler outputInvHandler = inventory.getHandler(OUTPUT);
+
+        inputItemCap = inventory.hasInputSlots() ? LazyOptional.of(() -> inputInvHandler) : LazyOptional.empty();
+        outputItemCap = inventory.hasOutputSlots() ? LazyOptional.of(() -> outputInvHandler) : LazyOptional.empty();
+
+        prevItemInputCap.invalidate();
+        prevItemOutputCap.invalidate();
 
         // FLUID
-        for (int i = 0; i < 6; ++i) {
-            sidedFluidCaps[i].invalidate();
+        LazyOptional<?> prevFluidInputCap = inputFluidCap;
+        LazyOptional<?> prevFluidOutputCap = outputFluidCap;
 
-            IFluidHandler handler;
-            switch (reconfigControl.getSideConfig(i)) {
-                case SIDE_NONE:
-                    handler = EmptyFluidHandler.INSTANCE;
-                    break;
-                case SIDE_INPUT:
-                    handler = tankInv.getHandler(INPUT);
-                    break;
-                case SIDE_OUTPUT:
-                    handler = tankInv.getHandler(OUTPUT);
-                    break;
-                default:
-                    handler = tankInv.getHandler(ACCESSIBLE);
-            }
-            sidedFluidCaps[i] = LazyOptional.of(() -> handler);
-        }
+        IFluidHandler inputFluidHandler = tankInv.getHandler(INPUT);
+        IFluidHandler outputFluidHandler = tankInv.getHandler(OUTPUT);
+
+        inputFluidCap = tankInv.hasInputTanks() ? LazyOptional.of(() -> inputFluidHandler) : LazyOptional.empty();
+        outputFluidCap = tankInv.hasOutputTanks() ? LazyOptional.of(() -> outputFluidHandler) : LazyOptional.empty();
+
+        prevFluidInputCap.invalidate();
+        prevFluidOutputCap.invalidate();
     }
 
     @Override
@@ -385,7 +349,16 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
         if (side == null) {
             return super.getItemHandlerCapability(side);
         }
-        return sidedItemCaps[side.ordinal()].cast();
+        switch (reconfigControl.getSideConfig(side)) {
+            case SIDE_NONE:
+                return LazyOptional.empty();
+            case SIDE_INPUT:
+                return inputItemCap.cast();
+            case SIDE_OUTPUT:
+                return outputItemCap.cast();
+            default:
+                return super.getItemHandlerCapability(side);
+        }
     }
 
     @Override
@@ -394,7 +367,16 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
         if (side == null) {
             return super.getFluidHandlerCapability(side);
         }
-        return sidedFluidCaps[side.ordinal()].cast();
+        switch (reconfigControl.getSideConfig(side)) {
+            case SIDE_NONE:
+                return LazyOptional.empty();
+            case SIDE_INPUT:
+                return inputFluidCap.cast();
+            case SIDE_OUTPUT:
+                return outputFluidCap.cast();
+            default:
+                return super.getFluidHandlerCapability(side);
+        }
     }
     // endregion
 

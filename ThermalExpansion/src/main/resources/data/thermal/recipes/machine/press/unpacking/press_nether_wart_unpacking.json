@@ -15,5 +15,14 @@
       "count": 9
     }
   ],
-  "energy": 400
+  "energy": 400,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "quark:flag",
+        "flag": "nether_wart_sack"
+      }
+    }
+  ]
 }

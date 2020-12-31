@@ -1,9 +1,9 @@
 {
   "name": "Foods",
   "icon": "thermal:chocolate_cake",
+  "category": "thermal:plants",
   "read_by_default": true,
   "flag": "mod:thermal_cultivation",
-  "category": "thermal:plants",
 
   "pages": [
     {
@@ -14,7 +14,12 @@
     {
       "type": "crafting",
       "recipe": "thermal:spice_cake",
-      "text": "A satiating, scrumptious sweet synthesized from sadiroot spice. Cleanses negative status effects when eaten."
+      "text": "A satiating, scrumptious sweet synthesized from sadiroot spice. Cleanses negative status effects."
+    },
+    {
+      "type": "crafting",
+      "recipe": "thermal:xp_stew",
+      "text": "An exhilarant eggplant elixir effervescing with exhorbitant experience enhancement. Boosts XP gain when consumed."
     }
   ]
 }

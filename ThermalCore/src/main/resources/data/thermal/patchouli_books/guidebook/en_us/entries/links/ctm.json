@@ -3,14 +3,13 @@
   "icon": "thermal:enderium_gear",
   "category": "thermal:links",
   "read_by_default": true,
+
   "pages": [
     {
       "type": "link",
       "url": "https://www.curseforge.com/minecraft/mc-mods/ctm",
       "link_text": "CTM",
       "text": "Did you know some of the textures like the Enderium glass will connect and look all pretty with CTM installed? You did? Good for you. You didn't? What are you waiting for?!"
-
-
     },
     {
       "type": "spotlight",
@@ -18,5 +17,4 @@
       "text": "Fun Fact! Enderium gets its name from its Spacetime-warping Ender properties!"
     }
   ]
-
 }

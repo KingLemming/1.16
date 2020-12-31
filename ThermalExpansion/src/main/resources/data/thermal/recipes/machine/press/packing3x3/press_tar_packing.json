@@ -2,7 +2,7 @@
   "type": "thermal:press",
   "input": [
     {
-      "tag": "forge:tar",
+      "item": "thermal:tar",
       "count": 9
     },
     {

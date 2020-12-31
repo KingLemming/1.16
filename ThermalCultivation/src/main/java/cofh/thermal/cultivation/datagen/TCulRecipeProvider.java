@@ -110,6 +110,18 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .addCriterion("has_sadiroot", hasItem(reg.get(ID_SADIROOT)))
                 .build(consumer);
 
+        ShapedRecipeBuilder.shapedRecipe(reg.get(ID_XP_STEW))
+                .key('A', reg.get(ID_BARLEY))
+                .key('B', Items.BOWL)
+                .key('C', reg.get(ID_SPINACH))
+                .key('D', reg.get(ID_EGGPLANT))
+                .key('E', Items.EXPERIENCE_BOTTLE)
+                .patternLine("CDC")
+                .patternLine("AEA")
+                .patternLine(" B ")
+                .addCriterion("has_eggplant", hasItem(reg.get(ID_EGGPLANT)))
+                .build(consumer);
+
         generateStorageRecipes(consumer, reg.get(block(ID_BARLEY)), reg.get(ID_BARLEY), forgeTag("crops/barley"));
         generateStorageRecipes(consumer, reg.get(block(ID_BELL_PEPPER)), reg.get(ID_BELL_PEPPER), forgeTag("crops/bell_pepper"));
         generateStorageRecipes(consumer, reg.get(block(ID_COFFEE)), reg.get(ID_COFFEE), forgeTag("crops/coffee"));

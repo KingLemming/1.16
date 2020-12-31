@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 import static cofh.core.util.constants.Constants.FACING_HORIZONTAL;
 
-public class TileBlockActive4Way extends TileBlockActive {
+public class TileBlockActive4Way extends TileBlockActive implements IWrenchable {
 
     public TileBlockActive4Way(Properties builder, Supplier<? extends TileCoFH> supplier) {
 

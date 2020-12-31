@@ -2,9 +2,9 @@
   "name": "Potion Infuser",
   "icon": "thermal:potion_infuser",
   "category": "thermal:tools",
-
   "read_by_default": true,
   "flag": "mod:thermal_innovation",
+
   "pages": [
     {
       "type": "text",

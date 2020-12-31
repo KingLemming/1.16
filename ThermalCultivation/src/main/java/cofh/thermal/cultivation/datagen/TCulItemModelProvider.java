@@ -77,6 +77,7 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         generated(reg.getSup(ID_FROST_MELON_SLICE), FOODS);
         generated(reg.getSup(ID_CHOCOLATE_CAKE), FOODS);
         generated(reg.getSup(ID_SPICE_CAKE), FOODS);
+        generated(reg.getSup(ID_XP_STEW), FOODS);
     }
 
     private void registerBlockItemModels() {
@@ -86,10 +87,10 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         blockItem(reg.getSup(block(ID_BARLEY)));
         blockItem(reg.getSup(block(ID_BELL_PEPPER)));
         blockItem(reg.getSup(block(ID_COFFEE)));
-        // blockItem(reg.getSup(block(ID_CORN)));
+        blockItem(reg.getSup(block(ID_CORN)));
         blockItem(reg.getSup(block(ID_EGGPLANT)));
         blockItem(reg.getSup(block(ID_GREEN_BEAN)));
-        // blockItem(reg.getSup(block(ID_HOPS)));
+        blockItem(reg.getSup(block(ID_HOPS)));
         blockItem(reg.getSup(block(ID_ONION)));
         blockItem(reg.getSup(block(ID_PEANUT)));
         blockItem(reg.getSup(block(ID_RADISH)));

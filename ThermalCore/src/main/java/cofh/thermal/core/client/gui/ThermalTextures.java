@@ -35,6 +35,7 @@ public class ThermalTextures {
         event.addSprite(CELL_CONFIG_NONE_LOC);
         event.addSprite(CELL_CONFIG_INPUT_LOC);
         event.addSprite(CELL_CONFIG_OUTPUT_LOC);
+        event.addSprite(CELL_CONFIG_BOTH_LOC);
 
         for (int i = 0; i < 9; ++i) {
             event.addSprite(new ResourceLocation(ID_THERMAL + ":block/cells/energy_cell_level_" + i));
@@ -66,6 +67,7 @@ public class ThermalTextures {
         CELL_CONFIG_NONE = map.getSprite(CELL_CONFIG_NONE_LOC);
         CELL_CONFIG_INPUT = map.getSprite(CELL_CONFIG_INPUT_LOC);
         CELL_CONFIG_OUTPUT = map.getSprite(CELL_CONFIG_OUTPUT_LOC);
+        CELL_CONFIG_BOTH = map.getSprite(CELL_CONFIG_BOTH_LOC);
 
         for (int i = 0; i < 9; ++i) {
             ENERGY_CELL_LEVELS[i] = map.getSprite(new ResourceLocation(ID_THERMAL + ":block/cells/energy_cell_level_" + i));
@@ -87,6 +89,7 @@ public class ThermalTextures {
     public static ResourceLocation CELL_CONFIG_NONE_LOC = new ResourceLocation(CONFIG_ + "cell_config_none");
     public static ResourceLocation CELL_CONFIG_INPUT_LOC = new ResourceLocation(CONFIG_ + "cell_config_input");
     public static ResourceLocation CELL_CONFIG_OUTPUT_LOC = new ResourceLocation(CONFIG_ + "cell_config_output");
+    public static ResourceLocation CELL_CONFIG_BOTH_LOC = new ResourceLocation(CONFIG_ + "cell_config_both");
 
     public static TextureAtlasSprite MACHINE_CONFIG_NONE;
     public static TextureAtlasSprite MACHINE_CONFIG_INPUT;
@@ -97,6 +100,7 @@ public class ThermalTextures {
     public static TextureAtlasSprite CELL_CONFIG_NONE;
     public static TextureAtlasSprite CELL_CONFIG_INPUT;
     public static TextureAtlasSprite CELL_CONFIG_OUTPUT;
+    public static TextureAtlasSprite CELL_CONFIG_BOTH;
 
     public static TextureAtlasSprite[] ENERGY_CELL_LEVELS = new TextureAtlasSprite[9];
     public static TextureAtlasSprite ENERGY_CELL_LEVEL_C;

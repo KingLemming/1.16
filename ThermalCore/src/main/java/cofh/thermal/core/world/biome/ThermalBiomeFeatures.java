@@ -37,6 +37,18 @@ public class ThermalBiomeFeatures {
         }
     }
 
+    public static void addOilGeneration(BiomeLoadingEvent event) {
+
+        BiomeGenerationSettingsBuilder generationSettingsBuilder = event.getGeneration();
+        Biome.Category category = event.getCategory();
+
+        if (isOverworldBiome(category)) {
+            if (category == Biome.Category.DESERT || category == Biome.Category.MESA) {
+                withOilSand(generationSettingsBuilder);
+            }
+        }
+    }
+
     public static void addHostileSpawns(BiomeLoadingEvent event) {
 
         MobSpawnInfoBuilder spawnInfoBuilder = event.getSpawns();
@@ -105,6 +117,14 @@ public class ThermalBiomeFeatures {
     public static void withNickelOre(BiomeGenerationSettings.Builder builder) {
 
         builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_NICKEL);
+    }
+    // endregion
+
+    // region OIL
+    public static void withOilSand(BiomeGenerationSettings.Builder builder) {
+
+        builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, OIL_SAND);
+        builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, OIL_RED_SAND);
     }
     // endregion
 

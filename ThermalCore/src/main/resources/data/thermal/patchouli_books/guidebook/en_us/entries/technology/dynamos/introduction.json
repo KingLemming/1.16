@@ -6,11 +6,10 @@
   "read_by_default": true,
   "flag": "mod:thermal_expansion",
 
-
   "pages": [
     {
       "type": "text",
-      "text": "Dynamos produce RF from various types of fuel. They have a coil side, which is indicated by the large red nub that glows when the dynamo is generating. RF is output from the coil side only, and dynamos only accept fuel from any of the other sides."
+      "text": "Dynamos produce RF from various types of fuel. They have a coil side, which is indicated by the large red nub that glows when the dynamo is generating. RF is output from the coil side only, and dynamos accept fuel from any of the other sides."
     },
     {
       "type": "text",

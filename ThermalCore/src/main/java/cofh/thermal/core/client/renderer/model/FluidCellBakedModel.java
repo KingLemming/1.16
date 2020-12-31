@@ -197,6 +197,8 @@ public class FluidCellBakedModel extends UnderlayBakedModel implements IDynamicB
                 return CELL_CONFIG_INPUT;
             case 2:
                 return CELL_CONFIG_OUTPUT;
+            case 3:
+                return CELL_CONFIG_BOTH;
             default:
                 return CELL_CONFIG_NONE;
         }

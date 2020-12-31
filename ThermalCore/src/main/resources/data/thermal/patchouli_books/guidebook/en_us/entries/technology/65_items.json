@@ -3,8 +3,8 @@
   "icon": "thermal:gold_gear",
   "category": "thermal:technology",
   "sortnum": -2,
-
   "read_by_default": true,
+
   "pages": [
     {
       "type": "text",

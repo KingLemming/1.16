@@ -4,6 +4,7 @@ import cofh.core.block.IDismantleable;
 import cofh.core.block.IWrenchable;
 import cofh.core.item.ItemCoFH;
 import cofh.core.util.Utils;
+import cofh.core.util.helpers.BlockHelper;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
@@ -16,7 +17,6 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
@@ -59,13 +59,8 @@ public class WrenchItem extends ItemCoFH {
                 BlockRayTraceResult target = new BlockRayTraceResult(context.getHitVec(), context.getFace(), context.getPos(), context.isInside());
                 ((IWrenchable) block).wrenchBlock(world, pos, state, target, player);
                 return true;
-            } else if (state.isNormalCube(world, pos)) {
-                BlockState rotState = block.rotate(state, world, pos, Rotation.CLOCKWISE_90);
-                if (rotState != state) {
-                    world.setBlockState(pos, rotState);
-                    return true;
-                }
             }
+            return BlockHelper.attemptRotateBlock(state, world, pos);
         }
         return false;
     }

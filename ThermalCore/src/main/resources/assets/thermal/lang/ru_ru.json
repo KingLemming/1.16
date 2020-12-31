@@ -17,6 +17,9 @@
   "block.thermal.ruby_ore": "Рубиновая руда",
   "block.thermal.sapphire_ore": "Сапфировая руда",
 
+  "block.thermal.oil_sand": "Битумный песок",
+  "block.thermal.oil_red_sand": "Битумный красный песок",
+
   "block.thermal.apatite_block": "Блок апатита",
   "block.thermal.cinnabar_block": "Блок киновари",
   "block.thermal.niter_block": "Блок селитры",
@@ -85,6 +88,8 @@
   "fluid.thermal.creosote": "Креозотовое масло",
   "fluid.thermal.crude_oil": "Сырая нефть",
   "fluid.thermal.latex": "Латекс",
+  "fluid.thermal.light_oil": "Лёгкая нефть",
+  "fluid.thermal.heavy_oil": "Тяжёлая нефть",
   "fluid.thermal.refined_fuel": "Очищенное топливо",
   "fluid.thermal.resin": "Смола",
   "fluid.thermal.sap": "Сок",
@@ -118,6 +123,8 @@
   "item.thermal.biofuel_bucket": "Ведро биотоплива",
   "item.thermal.creosote_bucket": "Ведро креозотового масла",
   "item.thermal.crude_oil_bucket": "Ведро сырой нефти",
+  "item.thermal.light_oil_bucket": "Ведро лёгкой нефти",
+  "item.thermal.heavy_oil_bucket": "Ведро тяжёлой нефти",
   "item.thermal.latex_bucket": "Ведро латекса",
   "item.thermal.refined_fuel_bucket": "Ведро очищенного топлива",
   "item.thermal.resin_bucket": "Ведро резины",

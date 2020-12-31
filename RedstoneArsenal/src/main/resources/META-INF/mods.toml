@@ -24,7 +24,7 @@ side = "BOTH"
 [[dependencies.redstone_arsenal]]
 modId = "forge"
 mandatory = true
-versionRange = "[31.1.0,)"
+versionRange = "[34.1.40,)"
 ordering = "AFTER"
 side = "BOTH"
 

@@ -69,9 +69,24 @@ public class ManagedTankInv extends SimpleTankInv {
 
         inputHandler = new ManagedFluidHandler(tile, inputTanks, Collections.emptyList());
         outputHandler = new ManagedFluidHandler(tile, Collections.emptyList(), outputTanks);
-        accessibleHandler = new ManagedFluidHandler(tile, inputTanks, outputTanks);
+        accessibleHandler = new ManagedFluidHandler(tile, inputTanks, outputTanks).restrict();
         internalHandler = new SimpleFluidHandler(tile, internalTanks);
         allHandler = new SimpleFluidHandler(tile, tanks);
+    }
+
+    public boolean hasInputTanks() {
+
+        return inputTanks.size() > 0;
+    }
+
+    public boolean hasOutputTanks() {
+
+        return outputTanks.size() > 0;
+    }
+
+    public boolean hasAccessibleTanks() {
+
+        return hasInputTanks() || hasOutputTanks();
     }
 
     public List<FluidStorageCoFH> getInputTanks() {

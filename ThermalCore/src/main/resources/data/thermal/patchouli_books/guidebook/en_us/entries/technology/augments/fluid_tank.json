@@ -3,6 +3,7 @@
   "icon": "thermal:fluid_tank_augment",
   "category": "thermal:augments",
   "read_by_default": true,
+
   "pages": [
     {
       "type": "crafting",

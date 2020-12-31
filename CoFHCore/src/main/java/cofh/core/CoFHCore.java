@@ -10,6 +10,7 @@ import cofh.core.key.CoreKeys;
 import cofh.core.network.PacketHandler;
 import cofh.core.network.packet.client.*;
 import cofh.core.network.packet.server.*;
+import cofh.core.plugins.quark.QuarkFlags;
 import cofh.core.registries.DeferredRegisterCoFH;
 import cofh.core.util.Proxy;
 import cofh.core.util.ProxyClient;
@@ -114,6 +115,8 @@ public class CoFHCore {
         CapabilityShieldItem.register();
 
         event.enqueueWork(TileNBTSync::setup);
+
+        QuarkFlags.setup();
 
         // AttributeEvents.setup();
     }

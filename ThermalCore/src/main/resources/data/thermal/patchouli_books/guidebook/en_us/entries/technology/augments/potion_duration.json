@@ -2,9 +2,9 @@
   "name": "Alchemical Extender",
   "icon": "thermal:potion_duration_augment",
   "category": "thermal:augments",
-
   "read_by_default": true,
-  "flag": "mod:thermal_expansion",
+  "flag": "mod:thermal_innovation",
+
   "pages": [
     {
       "type": "crafting",

@@ -16,7 +16,7 @@ apply plugin: 'maven-publish'
 
 version = "${mc_version}-${mod_version}"
 group = 'com.teamcofh'
-archivesBaseName = "${mod_id}"
+archivesBaseName = "${mod_id}_foundation"
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 compileJava { sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8 }

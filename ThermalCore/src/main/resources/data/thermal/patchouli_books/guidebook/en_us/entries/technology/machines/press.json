@@ -8,12 +8,17 @@
   "pages": [
     {
       "type": "text",
-      "text": "The Multiservo Press is a machine that presses metal ingots into other forms. Normally forms plates, but accepts gearworking and numismatic dies to make gears and coins, respectively."
+      "text": "The Multiservo Press is a machine that can accept a variety of dies in order to shape metals into different forms and (un)pack blocks and items."
     },
     {
       "type": "crafting",
       "recipe": "thermal:machine_press",
-      "title": "Multiservo Press"
+      "recipe2": "thermal:press_unpacking_die"
+    },
+    {
+      "type": "crafting",
+      "recipe": "thermal:press_packing_2x2_die",
+      "recipe2": "thermal:press_packing_3x3_die"
     },
     {
       "type": "crafting",

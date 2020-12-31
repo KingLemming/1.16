@@ -5,6 +5,7 @@ import cofh.core.fluid.FluidStorageCoFH;
 import cofh.core.network.packet.client.TileStatePacket;
 import cofh.core.util.StorageGroup;
 import cofh.core.util.helpers.BlockHelper;
+import cofh.core.util.helpers.FluidHelper;
 import cofh.thermal.core.inventory.container.storage.FluidCellContainer;
 import cofh.thermal.core.tileentity.CellTileBase;
 import net.minecraft.entity.player.PlayerEntity;
@@ -66,6 +67,12 @@ public class FluidCellTile extends CellTileBase implements ITickableTileEntity {
         if (timeCheck() || fluidStorage.getFluidStack() != renderFluid) {
             updateTrackers(true);
         }
+    }
+
+    @Override
+    public int getLightValue() {
+
+        return FluidHelper.luminosity(renderFluid);
     }
 
     protected void transferFluid() {
@@ -138,6 +145,7 @@ public class FluidCellTile extends CellTileBase implements ITickableTileEntity {
     @Override
     protected void updateTrackers(boolean send) {
 
+        prevLight = getLightValue();
         renderFluid = fluidStorage.getFluidStack();
 
         int curScale = fluidStorage.getAmount() > 0 ? 1 + (int) (fluidStorage.getRatio() * 14) : 0;
@@ -157,33 +165,21 @@ public class FluidCellTile extends CellTileBase implements ITickableTileEntity {
     }
 
     // region CAPABILITIES
-    protected final LazyOptional<?>[] sidedFluidCaps = new LazyOptional<?>[]{
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty()
-    };
-
     @Override
-    protected void updateSidedHandlers() {
-        // FLUID
-        for (int i = 0; i < 6; ++i) {
-            sidedFluidCaps[i].invalidate();
-            sidedFluidCaps[i] = reconfigControl.getSideConfig(i).isInput()
-                    ? LazyOptional.of(() -> fluidStorage)
-                    : LazyOptional.empty();
-        }
+    protected void updateHandlers() {
+
+        LazyOptional<?> oldCap = fluidCap;
+        fluidCap = LazyOptional.of(() -> fluidStorage);
+        oldCap.invalidate();
     }
 
     @Override
     protected <T> LazyOptional<T> getFluidHandlerCapability(@Nullable Direction side) {
 
-        if (side == null) {
+        if (side == null || reconfigControl.getSideConfig(side.ordinal()) != SideConfig.SIDE_NONE) {
             return super.getFluidHandlerCapability(side);
         }
-        return sidedFluidCaps[side.ordinal()].cast();
+        return LazyOptional.empty();
     }
     // endregion
 }

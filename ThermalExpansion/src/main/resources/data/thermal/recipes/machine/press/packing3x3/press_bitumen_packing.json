@@ -2,7 +2,7 @@
   "type": "thermal:press",
   "input": [
     {
-      "tag": "forge:bitumen",
+      "item": "thermal:bitumen",
       "count": 9
     },
     {

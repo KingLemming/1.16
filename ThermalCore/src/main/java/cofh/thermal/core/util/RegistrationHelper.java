@@ -19,6 +19,7 @@ import java.util.function.Supplier;
 import static cofh.core.util.constants.Constants.TRUE;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
+import static cofh.thermal.core.common.ThermalFlags.*;
 import static cofh.thermal.core.common.ThermalItemGroups.THERMAL_BLOCKS;
 import static cofh.thermal.core.common.ThermalItemGroups.THERMAL_ITEMS;
 import static net.minecraft.block.AbstractBlock.Properties.create;
@@ -126,8 +127,8 @@ public class RegistrationHelper {
         }
         ITEMS.register(prefix + "_dust", () -> new ItemCoFH(new Item.Properties().group(group).rarity(rarity)).setShowInGroups(showInGroups));
         ITEMS.register(prefix + "_gear", () -> new ItemCoFH(new Item.Properties().group(group).rarity(rarity)).setShowInGroups(showInGroups));
-        ITEMS.register(prefix + "_plate", () -> new CountedItem(new Item.Properties().group(group).rarity(rarity)).setShowInGroups(showInGroups));
-        ITEMS.register(prefix + "_coin", () -> new CoinItem(new Item.Properties().group(group).rarity(rarity)).setShowInGroups(showInGroups));
+        ITEMS.register(prefix + "_plate", () -> new CountedItem(new Item.Properties().group(group).rarity(rarity)).setShowInGroups(() -> getFlag(FLAG_PLATES).getAsBoolean() && showInGroups.getAsBoolean()));
+        ITEMS.register(prefix + "_coin", () -> new CoinItem(new Item.Properties().group(group).rarity(rarity)).setShowInGroups(() -> getFlag(FLAG_COINS).getAsBoolean() && showInGroups.getAsBoolean()));
     }
     // endregion
 

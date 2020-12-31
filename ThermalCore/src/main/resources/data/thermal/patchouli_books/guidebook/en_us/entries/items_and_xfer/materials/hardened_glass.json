@@ -1,8 +1,8 @@
 {
   "name": "Hardened Glass",
   "icon": "thermal:obsidian_glass",
-  "read_by_default": true,
   "category": "thermal:materials",
+  "read_by_default": true,
 
   "pages": [
     {
@@ -10,7 +10,7 @@
       "text": "Hardened glass is blast-resistant glass used in various recipes. It can be lined with various metals to give it different properties. Like with $(l:thermal:items_and_xfer/materials/alloys)alloys$(/l), hardened glass and its variants can be crafted with their constituents and a fire charge in a crafting bench, or directly in an induction smelter."
     },
     {
-      "type": "alloy32page",
+      "type": "3-3_alloy_page",
 
       "A.in1": "minecraft:quartz",
       "A.in2": "minecraft:obsidian",
@@ -24,7 +24,7 @@
       "B.text": "Powers adjacent redstone."
     },
     {
-      "type": "alloy2page",
+      "type": "3-3_alloy_page",
 
       "A.in1": "thermal:obsidian_glass#2",
       "A.in2": "thermal:lumium_ingot",

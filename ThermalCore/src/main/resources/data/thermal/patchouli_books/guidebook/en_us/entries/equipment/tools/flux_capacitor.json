@@ -2,9 +2,9 @@
   "name": "Flux Capacitor",
   "icon": "thermal:flux_capacitor",
   "category": "thermal:tools",
-
   "read_by_default": true,
   "flag": "mod:thermal_innovation",
+
   "pages": [
     {
       "type": "text",

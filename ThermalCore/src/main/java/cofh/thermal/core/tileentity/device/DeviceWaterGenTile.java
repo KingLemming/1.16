@@ -2,7 +2,6 @@ package cofh.thermal.core.tileentity.device;
 
 import cofh.core.fluid.FluidStorageCoFH;
 import cofh.core.inventory.ItemStorageCoFH;
-import cofh.core.network.packet.client.TileControlPacket;
 import cofh.core.util.helpers.FluidHelper;
 import cofh.thermal.core.inventory.container.device.DeviceWaterGenContainer;
 import cofh.thermal.core.tileentity.ThermalTileBase;
@@ -183,7 +182,7 @@ public class DeviceWaterGenTile extends ThermalTileBase implements ITickableTile
     public void onControlUpdate() {
 
         updateActiveState();
-        TileControlPacket.sendToClient(this);
+        super.onControlUpdate();
     }
     // endregion
 }

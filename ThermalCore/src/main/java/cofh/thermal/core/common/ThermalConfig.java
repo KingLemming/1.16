@@ -77,17 +77,17 @@ public class ThermalConfig {
                 .comment("If TRUE, various 'Vanilla+' Blocks and Recipes are enabled.")
                 .define("Vanilla+", true);
         flagRockwool = SERVER_CONFIG
-                .comment("IF TRUE, Rockwool Blocks and Recipes are enabled.")
+                .comment("If TRUE, Rockwool Blocks and Recipes are enabled.")
                 .define("Rockwool", true);
 
         flagMobBasalz = SERVER_CONFIG
-                .comment("IF TRUE, the Basalz Mob is enabled.")
+                .comment("If TRUE, the Basalz Mob is enabled.")
                 .define("Basalz", true);
         flagMobBlitz = SERVER_CONFIG
-                .comment("IF TRUE, the Blitz Mob is enabled.")
+                .comment("If TRUE, the Blitz Mob is enabled.")
                 .define("Blitz", true);
         flagMobBlizz = SERVER_CONFIG
-                .comment("IF TRUE, the Blizz Mob is enabled.")
+                .comment("If TRUE, the Blizz Mob is enabled.")
                 .define("Blizz", true);
 
         SERVER_CONFIG.pop();
@@ -100,6 +100,14 @@ public class ThermalConfig {
     }
 
     private static void genClientConfig() {
+
+        CLIENT_CONFIG.push("Sounds");
+
+        flagMobAmbientSounds = CLIENT_CONFIG
+                .comment("If TRUE, 'Thermal Series' Mobs will have ambient sounds.")
+                .define("Ambient Mob Sounds", true);
+
+        CLIENT_CONFIG.pop();
 
         clientSpec = CLIENT_CONFIG.build();
 
@@ -139,6 +147,10 @@ public class ThermalConfig {
                 .comment("Set to FALSE to prevent 'Thermal Series' Nickel from generating.")
                 .define("Nickel", true);
 
+        flagGenOil = SERVER_CONFIG
+                .comment("Set to FALSE to prevent 'Thermal Series' Oil Sands from generating.")
+                .define("Oil", true);
+
         SERVER_CONFIG.pop();
     }
 
@@ -170,10 +182,13 @@ public class ThermalConfig {
         setFlag(FLAG_GEN_LEAD, () -> getFlag(FLAG_RESOURCE_LEAD).getAsBoolean() && flagGenLead.get());
         setFlag(FLAG_GEN_SILVER, () -> getFlag(FLAG_RESOURCE_SILVER).getAsBoolean() && flagGenSilver.get());
         setFlag(FLAG_GEN_NICKEL, () -> getFlag(FLAG_RESOURCE_NICKEL).getAsBoolean() && flagGenNickel.get());
+
+        setFlag(FLAG_GEN_OIL, () -> getFlag(FLAG_RESOURCE_OIL).getAsBoolean() && flagGenOil.get());
     }
 
     private static void refreshClientConfig() {
 
+        mobAmbientSounds = flagMobAmbientSounds.get();
     }
 
     // region GLOBALS
@@ -219,12 +234,18 @@ public class ThermalConfig {
     private static BooleanValue flagGenSilver;
     private static BooleanValue flagGenNickel;
 
+    private static BooleanValue flagGenOil;
+
     private static BooleanValue freezePermanentLava;
     private static BooleanValue freezePermanentWater;
     // endregion
 
     // region CLIENT VARIABLES
     public static boolean jeiBucketTanks = true;
+
+    public static boolean mobAmbientSounds = true;
+
+    public static BooleanValue flagMobAmbientSounds;
     // endregion
 
     // region CONFIGURATION

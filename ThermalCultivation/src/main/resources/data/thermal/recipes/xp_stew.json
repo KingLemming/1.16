@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CDC",
+    "AEA",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "thermal:barley"
+    },
+    "B": {
+      "item": "minecraft:bowl"
+    },
+    "C": {
+      "item": "thermal:spinach"
+    },
+    "D": {
+      "item": "thermal:eggplant"
+    },
+    "E": {
+      "item": "minecraft:experience_bottle"
+    }
+  },
+  "result": {
+    "item": "thermal:xp_stew"
+  }
+}

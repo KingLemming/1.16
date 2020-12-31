@@ -3,6 +3,7 @@
   "icon": "thermal:rf_coil_augment",
   "category": "thermal:augments",
   "read_by_default": true,
+
   "pages": [
     {
       "type": "crafting",

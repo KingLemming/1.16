@@ -82,7 +82,7 @@ public class DisplacementEnchantment extends EnchantmentCoFH {
         }
         if (user instanceof PlayerEntity || !(attacker instanceof PlayerEntity) || mobsAffectPlayers) {
             Random rand = user.getRNG();
-            int radius = 8 * (2 ^ level);
+            int radius = 16 * level;
             int bound = radius * 2 + 1;
             BlockPos pos = new BlockPos(attacker.getPosX(), attacker.getPosY(), attacker.getPosZ());
             BlockPos randPos = pos.add(-radius + rand.nextInt(bound), rand.nextInt(8), -radius + rand.nextInt(bound));

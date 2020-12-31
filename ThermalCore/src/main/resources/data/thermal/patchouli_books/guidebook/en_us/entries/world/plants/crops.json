@@ -1,24 +1,30 @@
 {
   "name": "Crops",
   "icon": "thermal:barley",
+  "category": "thermal:plants",
   "read_by_default": true,
   "flag": "mod:thermal_cultivation",
-  "category": "thermal:plants",
 
   "pages": [
     {
-      "type": "singleitempage",
+      "type": "text",
+      "text": "Thermal Cultivation adds a variety of crops, the seeds of which may be purchased from villagers."
+    },
+    {
+      "type": "2-2_item_page",
 
       "A.title": "Hops",
-      "A.item": "thermal:hops",
+      "A.item1": "thermal:hops",
+      "A.item2": "thermal:hops_seeds",
       "A.text": "The seed cones of a flowering hop vine. Used to flavor beer.",
 
       "B.title": "Corn",
-      "B.item": "thermal:corn",
+      "B.item1": "thermal:corn",
+      "B.item2": "thermal:corn_seeds",
       "B.text": "A staple grain prized for its versatility."
     },
     {
-      "type": "doubleitempage",
+      "type": "2-2_item_page",
 
       "A.title": "Barley",
       "A.item1": "thermal:barley",
@@ -31,7 +37,7 @@
       "B.text": "A root vegetable with a sharp flavor, typically eaten raw or steamed."
     },
     {
-      "type": "doubleitempage",
+      "type": "2-2_item_page",
 
       "A.title": "Onion",
       "A.item1": "thermal:onion",
@@ -44,7 +50,7 @@
       "B.text": "The most widely consumed staple grain in the world. Laborious to harvest."
     },
     {
-      "type": "doubleitempage",
+      "type": "2-2_item_page",
 
       "A.title": "Sadiroot",
       "A.item1": "thermal:sadiroot",
@@ -57,7 +63,7 @@
       "B.text": "The leaves of a spinach plant. Grants sailors an increase in muscle mass."
     },
     {
-      "type": "doubleitempage",
+      "type": "2-2_item_page",
 
       "A.title": "Bell Pepper",
       "A.item1": "thermal:bell_pepper",
@@ -70,7 +76,7 @@
       "B.text": "A purple, spongy $(l)fruit$() used in many dishes. Tends to absorb other flavors."
     },
     {
-      "type": "doubleitempage",
+      "type": "2-2_item_page",
 
       "A.title": "Green Bean",
       "A.item1": "thermal:green_bean",
@@ -83,7 +89,7 @@
       "B.text": "The seeds of a peanut plant. Often roasted, pressed into oil, or ground into peanut butter."
     },
     {
-      "type": "doubleitempage",
+      "type": "2-2_item_page",
 
       "A.title": "Strawberry",
       "A.item1": "thermal:strawberry",
@@ -96,7 +102,7 @@
       "B.text": "A savory, red $(l)fruit$() often sliced for dishes or squeezed for sauces and soups."
     },
     {
-      "type": "doubleitempage",
+      "type": "2-2_item_page",
 
       "A.title": "Coffee",
       "A.item1": "thermal:coffee",
@@ -109,7 +115,7 @@
       "B.text": "The leaves of a tea plant. Often dumped into the ocean during tea parties."
     },
     {
-      "type": "tripleitemtemplate",
+      "type": "3_item_page",
 
       "title": "Frost Melon",
       "item1": "thermal:frost_melon",

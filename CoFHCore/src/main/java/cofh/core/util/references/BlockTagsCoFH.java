@@ -27,6 +27,7 @@ public class BlockTagsCoFH {
 
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_APATITE = forgeTag("storage_blocks/apatite");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_BAMBOO = forgeTag("storage_blocks/bamboo");
+    public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_BITUMEN = forgeTag("storage_blocks/bitumen");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_BRONZE = forgeTag("storage_blocks/bronze");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_CHARCOAL = forgeTag("storage_blocks/charcoal");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_CINNABAR = forgeTag("storage_blocks/cinnabar");
@@ -45,8 +46,10 @@ public class BlockTagsCoFH {
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_SAPPHIRE = forgeTag("storage_blocks/sapphire");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_SIGNALUM = forgeTag("storage_blocks/signalum");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_SILVER = forgeTag("storage_blocks/silver");
+    public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_SLAG = forgeTag("storage_blocks/slag");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_SUGAR_CANE = forgeTag("storage_blocks/sugar_cane");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_SULFUR = forgeTag("storage_blocks/sulfur");
+    public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_TAR = forgeTag("storage_blocks/tar");
     public static final IOptionalNamedTag<Block> STORAGE_BLOCKS_TIN = forgeTag("storage_blocks/tin");
 
     // region HELPERS

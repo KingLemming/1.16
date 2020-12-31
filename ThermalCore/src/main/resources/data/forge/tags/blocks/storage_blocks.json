@@ -3,6 +3,7 @@
   "values": [
     "#forge:storage_blocks/apatite",
     "#forge:storage_blocks/bamboo",
+    "#forge:storage_blocks/bitumen",
     "#forge:storage_blocks/bronze",
     "#forge:storage_blocks/charcoal",
     "#forge:storage_blocks/cinnabar",
@@ -21,8 +22,10 @@
     "#forge:storage_blocks/sapphire",
     "#forge:storage_blocks/signalum",
     "#forge:storage_blocks/silver",
+    "#forge:storage_blocks/slag",
     "#forge:storage_blocks/sugar_cane",
     "#forge:storage_blocks/sulfur",
+    "#forge:storage_blocks/tar",
     "#forge:storage_blocks/tin"
   ]
 }

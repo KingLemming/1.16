@@ -136,9 +136,6 @@ public class EnergyStorageCoFH implements IEnergyStorage, IResourceStorage, INBT
     public EnergyStorageCoFH read(CompoundNBT nbt) {
 
         this.energy = nbt.getInt(TAG_ENERGY);
-        if (energy > capacity) {
-            energy = capacity;
-        }
         return this;
     }
 

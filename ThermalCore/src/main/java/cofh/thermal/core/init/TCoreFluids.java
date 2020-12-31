@@ -25,8 +25,10 @@ public class TCoreFluids {
         //        BiofuelFluid.create();
 
         CreosoteFluid.create();
-        //        CrudeOilFluid.create();
-        //        RefinedFuelFluid.create();
+        CrudeOilFluid.create();
+        HeavyOilFluid.create();
+        LightOilFluid.create();
+        RefinedFuelFluid.create();
     }
 
 }

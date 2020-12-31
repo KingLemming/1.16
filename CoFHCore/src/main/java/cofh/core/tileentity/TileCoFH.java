@@ -88,6 +88,11 @@ public class TileCoFH extends TileEntity implements ITileCallback, IConveyableDa
         return 0;
     }
 
+    public int getLightValue() {
+
+        return 0;
+    }
+
     public void neighborChanged(Block blockIn, BlockPos fromPos) {
 
     }

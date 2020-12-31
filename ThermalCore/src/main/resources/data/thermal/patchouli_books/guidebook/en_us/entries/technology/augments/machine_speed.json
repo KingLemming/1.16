@@ -2,9 +2,9 @@
   "name": "Flux Linkage Amplifier",
   "icon": "thermal:machine_speed_augment",
   "category": "thermal:augments",
-
   "read_by_default": true,
   "flag": "mod:thermal_expansion",
+
   "pages": [
     {
       "type": "crafting",

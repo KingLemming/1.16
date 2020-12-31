@@ -3,6 +3,7 @@
   "icon": "thermal:lock",
   "category": "thermal:technology",
   "read_by_default": true,
+
   "pages": [
     {
       "type": "text",

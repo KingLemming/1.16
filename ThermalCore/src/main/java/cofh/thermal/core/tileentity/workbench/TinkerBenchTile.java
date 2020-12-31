@@ -2,6 +2,7 @@ package cofh.thermal.core.tileentity.workbench;
 
 import cofh.core.energy.EnergyStorageCoFH;
 import cofh.core.fluid.FluidStorageCoFH;
+import cofh.core.fluid.PotionFluid;
 import cofh.core.inventory.ItemStorageCoFH;
 import cofh.core.util.helpers.AugmentableHelper;
 import cofh.core.util.helpers.EnergyHelper;
@@ -12,12 +13,12 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 
@@ -25,18 +26,18 @@ import javax.annotation.Nullable;
 
 import static cofh.core.util.StorageGroup.INPUT;
 import static cofh.core.util.StorageGroup.INTERNAL;
-import static cofh.core.util.constants.Constants.BUCKET_VOLUME;
-import static cofh.core.util.constants.Constants.TANK_MEDIUM;
+import static cofh.core.util.constants.Constants.*;
 import static cofh.core.util.constants.NBTTags.TAG_MODE;
 import static cofh.thermal.core.common.ThermalConfig.storageAugments;
 import static cofh.thermal.core.init.TCoreReferences.TINKER_BENCH_TILE;
 import static net.minecraftforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE;
+import static net.minecraftforge.fluids.capability.IFluidHandler.FluidAction.SIMULATE;
 
 public class TinkerBenchTile extends ThermalTileBase implements ITickableTileEntity {
 
     protected ItemStorageCoFH tinkerSlot = new ItemStorageCoFH(1, item -> AugmentableHelper.isAugmentableItem(item) || EnergyHelper.hasEnergyHandlerCap(item) || FluidHelper.hasFluidHandlerCap(item));
     protected ItemStorageCoFH chargeSlot = new ItemStorageCoFH(1, EnergyHelper::hasEnergyHandlerCap);
-    protected ItemStorageCoFH tankSlot = new ItemStorageCoFH(1, FluidHelper::hasFluidHandlerCap);
+    protected ItemStorageCoFH tankSlot = new ItemStorageCoFH(1, (item) -> FluidHelper.hasFluidHandlerCap(item) || item.getItem() == Items.POTION);
 
     protected FluidStorageCoFH tank = new FluidStorageCoFH(TANK_MEDIUM);
 
@@ -109,38 +110,39 @@ public class TinkerBenchTile extends ThermalTileBase implements ITickableTileEnt
 
         if (!chargeSlot.isEmpty()) {
             int maxTransfer = Math.min(energyStorage.getMaxReceive(), energyStorage.getSpace());
-            chargeSlot.getItemStack()
-                    .getCapability(CapabilityEnergy.ENERGY, null)
-                    .ifPresent(c -> energyStorage.receiveEnergy(c.extractEnergy(maxTransfer, false), false));
+            chargeSlot.getItemStack().getCapability(CapabilityEnergy.ENERGY, null).ifPresent(c -> energyStorage.receiveEnergy(c.extractEnergy(maxTransfer, false), false));
         }
         if (!tinkerSlot.isEmpty() && mode == REPLENISH && !pause) {
             int maxTransfer = Math.min(energyStorage.getMaxExtract(), energyStorage.getEnergyStored());
-
-            LazyOptional<IEnergyStorage> opt = tinkerSlot.getItemStack().getCapability(CapabilityEnergy.ENERGY, null);
-
-            tinkerSlot.getItemStack()
-                    .getCapability(CapabilityEnergy.ENERGY, null)
-                    .ifPresent(c -> energyStorage.extractEnergy(c.receiveEnergy(maxTransfer, false), false));
+            tinkerSlot.getItemStack().getCapability(CapabilityEnergy.ENERGY, null).ifPresent(c -> energyStorage.extractEnergy(c.receiveEnergy(maxTransfer, false), false));
         }
     }
 
     protected void fillFluid() {
 
         if (!tankSlot.isEmpty()) {
-            tankSlot.getItemStack()
-                    .getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null)
-                    .ifPresent(c -> {
-                        c.drain(tank.fill(new FluidStack(c.getFluidInTank(0), BUCKET_VOLUME), EXECUTE), EXECUTE);
+            ItemStack tankStack = tankSlot.getItemStack();
+            if (tankStack.getItem() == Items.POTION) {
+                FluidStack potion = PotionFluid.getPotionFluidFromItem(BOTTLE_VOLUME, tankStack);
+                if (tank.fill(potion, SIMULATE) == BOTTLE_VOLUME) {
+                    tank.fill(potion, EXECUTE);
+                    tankSlot.setItemStack(new ItemStack(Items.GLASS_BOTTLE));
+                }
+            } else {
+                tankStack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null).ifPresent(c -> {
+                    int toFill = tank.fill(new FluidStack(c.getFluidInTank(0), BUCKET_VOLUME), SIMULATE);
+                    if (toFill > 0) {
+                        tank.modify(c.drain(toFill, EXECUTE).getAmount());
                         tankSlot.setItemStack(c.getContainer());
-                    });
+                    }
+                });
+            }
         }
         if (!tinkerSlot.isEmpty() && mode == REPLENISH && !pause) {
-            tinkerSlot.getItemStack()
-                    .getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null)
-                    .ifPresent(c -> {
-                        tank.drain(c.fill(new FluidStack(tank.getFluidStack(), BUCKET_VOLUME), EXECUTE), EXECUTE);
-                        tinkerSlot.setItemStack(c.getContainer());
-                    });
+            tinkerSlot.getItemStack().getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null).ifPresent(c -> {
+                tank.drain(c.fill(new FluidStack(tank.getFluidStack(), Math.min(tank.getAmount(), BUCKET_VOLUME)), EXECUTE), EXECUTE);
+                tinkerSlot.setItemStack(c.getContainer());
+            });
         }
     }
 

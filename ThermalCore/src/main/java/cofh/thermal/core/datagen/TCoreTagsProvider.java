@@ -85,6 +85,7 @@ public class TCoreTagsProvider {
 
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_APATITE).add(BLOCKS.get(ID_APATITE_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_BAMBOO).add(BLOCKS.get(ID_BAMBOO_BLOCK));
+            getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_BITUMEN).add(BLOCKS.get(ID_BITUMEN_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_BRONZE).add(BLOCKS.get(ID_BRONZE_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_CHARCOAL).add(BLOCKS.get(ID_CHARCOAL_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_CINNABAR).add(BLOCKS.get(ID_CINNABAR_BLOCK));
@@ -103,13 +104,16 @@ public class TCoreTagsProvider {
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_SAPPHIRE).add(BLOCKS.get(ID_SAPPHIRE_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_SIGNALUM).add(BLOCKS.get(ID_SIGNALUM_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_SILVER).add(BLOCKS.get(ID_SILVER_BLOCK));
+            getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_SLAG).add(BLOCKS.get(ID_SLAG_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_SUGAR_CANE).add(BLOCKS.get(ID_SUGAR_CANE_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_SULFUR).add(BLOCKS.get(ID_SULFUR_BLOCK));
+            getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_TAR).add(BLOCKS.get(ID_TAR_BLOCK));
             getOrCreateBuilder(BlockTagsCoFH.STORAGE_BLOCKS_TIN).add(BLOCKS.get(ID_TIN_BLOCK));
 
             getOrCreateBuilder(Tags.Blocks.STORAGE_BLOCKS).addTags(
                     BlockTagsCoFH.STORAGE_BLOCKS_APATITE,
                     BlockTagsCoFH.STORAGE_BLOCKS_BAMBOO,
+                    BlockTagsCoFH.STORAGE_BLOCKS_BITUMEN,
                     BlockTagsCoFH.STORAGE_BLOCKS_BRONZE,
                     BlockTagsCoFH.STORAGE_BLOCKS_CHARCOAL,
                     BlockTagsCoFH.STORAGE_BLOCKS_CINNABAR,
@@ -128,8 +132,10 @@ public class TCoreTagsProvider {
                     BlockTagsCoFH.STORAGE_BLOCKS_SAPPHIRE,
                     BlockTagsCoFH.STORAGE_BLOCKS_SIGNALUM,
                     BlockTagsCoFH.STORAGE_BLOCKS_SILVER,
+                    BlockTagsCoFH.STORAGE_BLOCKS_SLAG,
                     BlockTagsCoFH.STORAGE_BLOCKS_SUGAR_CANE,
                     BlockTagsCoFH.STORAGE_BLOCKS_SULFUR,
+                    BlockTagsCoFH.STORAGE_BLOCKS_TAR,
                     BlockTagsCoFH.STORAGE_BLOCKS_TIN
             );
         }
@@ -183,6 +189,7 @@ public class TCoreTagsProvider {
 
             copy(BlockTagsCoFH.STORAGE_BLOCKS_APATITE, ItemTagsCoFH.STORAGE_BLOCKS_APATITE);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_BAMBOO, ItemTagsCoFH.STORAGE_BLOCKS_BAMBOO);
+            copy(BlockTagsCoFH.STORAGE_BLOCKS_BITUMEN, ItemTagsCoFH.STORAGE_BLOCKS_BITUMEN);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_BRONZE, ItemTagsCoFH.STORAGE_BLOCKS_BRONZE);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_CHARCOAL, ItemTagsCoFH.STORAGE_BLOCKS_CHARCOAL);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_CINNABAR, ItemTagsCoFH.STORAGE_BLOCKS_CINNABAR);
@@ -201,8 +208,10 @@ public class TCoreTagsProvider {
             copy(BlockTagsCoFH.STORAGE_BLOCKS_SAPPHIRE, ItemTagsCoFH.STORAGE_BLOCKS_SAPPHIRE);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_SIGNALUM, ItemTagsCoFH.STORAGE_BLOCKS_SIGNALUM);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_SILVER, ItemTagsCoFH.STORAGE_BLOCKS_SILVER);
+            copy(BlockTagsCoFH.STORAGE_BLOCKS_SLAG, ItemTagsCoFH.STORAGE_BLOCKS_SLAG);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_SUGAR_CANE, ItemTagsCoFH.STORAGE_BLOCKS_SUGAR_CANE);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_SULFUR, ItemTagsCoFH.STORAGE_BLOCKS_SULFUR);
+            copy(BlockTagsCoFH.STORAGE_BLOCKS_TAR, ItemTagsCoFH.STORAGE_BLOCKS_TAR);
             copy(BlockTagsCoFH.STORAGE_BLOCKS_TIN, ItemTagsCoFH.STORAGE_BLOCKS_TIN);
 
             getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).addTags(
@@ -474,14 +483,18 @@ public class TCoreTagsProvider {
 
             getOrCreateBuilder(ItemTagsCoFH.TOOLS_WRENCH).add(ITEMS.get("wrench"));
 
+            getOrCreateBuilder(ItemTagsCoFH.BITUMEN).add(ITEMS.get("bitumen"));
+            getOrCreateBuilder(ItemTagsCoFH.COAL_COKE).add(ITEMS.get("coal_coke"));
             getOrCreateBuilder(ItemTagsCoFH.SAWDUST).add(ITEMS.get("sawdust"));
+            getOrCreateBuilder(ItemTagsCoFH.SLAG).add(ITEMS.get("slag"));
+            getOrCreateBuilder(ItemTagsCoFH.TAR).add(ITEMS.get("tar"));
 
             getOrCreateBuilder(ItemTagsCoFH.DUSTS_APATITE).add(ITEMS.get("apatite_dust"));
             getOrCreateBuilder(ItemTagsCoFH.DUSTS_CINNABAR).add(ITEMS.get("cinnabar_dust"));
             getOrCreateBuilder(ItemTagsCoFH.DUSTS_NITER).add(ITEMS.get("niter_dust"));
             getOrCreateBuilder(ItemTagsCoFH.DUSTS_SULFUR).add(ITEMS.get("sulfur_dust"));
+            getOrCreateBuilder(ItemTagsCoFH.DUSTS_WOOD).add(ITEMS.get("sawdust"));
 
-            getOrCreateBuilder(ItemTagsCoFH.COAL_COKE).add(ITEMS.get("coal_coke"));
             getOrCreateBuilder(ItemTagsCoFH.DUSTS_ENDER_PEARL).add(ITEMS.get("ender_pearl_dust"));
         }
 

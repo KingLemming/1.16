@@ -69,6 +69,7 @@ public class ItemTagsCoFH {
     public static final IOptionalNamedTag<Item> DUSTS_SILVER = forgeTag("dusts/silver");
     public static final IOptionalNamedTag<Item> DUSTS_SULFUR = forgeTag("dusts/sulfur");
     public static final IOptionalNamedTag<Item> DUSTS_TIN = forgeTag("dusts/tin");
+    public static final IOptionalNamedTag<Item> DUSTS_WOOD = forgeTag("dusts/wood");
 
     public static final IOptionalNamedTag<Item> GEARS = forgeTag("gears");
 
@@ -187,6 +188,7 @@ public class ItemTagsCoFH {
 
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_APATITE = forgeTag("storage_blocks/apatite");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_BAMBOO = forgeTag("storage_blocks/bamboo");
+    public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_BITUMEN = forgeTag("storage_blocks/bitumen");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_BRONZE = forgeTag("storage_blocks/bronze");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_CHARCOAL = forgeTag("storage_blocks/charcoal");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_CINNABAR = forgeTag("storage_blocks/cinnabar");
@@ -205,14 +207,19 @@ public class ItemTagsCoFH {
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_SAPPHIRE = forgeTag("storage_blocks/sapphire");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_SIGNALUM = forgeTag("storage_blocks/signalum");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_SILVER = forgeTag("storage_blocks/silver");
+    public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_SLAG = forgeTag("storage_blocks/slag");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_SUGAR_CANE = forgeTag("storage_blocks/sugar_cane");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_SULFUR = forgeTag("storage_blocks/sulfur");
+    public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_TAR = forgeTag("storage_blocks/tar");
     public static final IOptionalNamedTag<Item> STORAGE_BLOCKS_TIN = forgeTag("storage_blocks/tin");
 
     public static final IOptionalNamedTag<Item> TOOLS_WRENCH = forgeTag("tools/wrench");
 
+    public static final IOptionalNamedTag<Item> BITUMEN = forgeTag("bitumen");
     public static final IOptionalNamedTag<Item> COAL_COKE = forgeTag("coal_coke");
     public static final IOptionalNamedTag<Item> SAWDUST = forgeTag("sawdust");
+    public static final IOptionalNamedTag<Item> SLAG = forgeTag("slag");
+    public static final IOptionalNamedTag<Item> TAR = forgeTag("tar");
 
     public static final IOptionalNamedTag<Item> MACHINE_DIES = thermalTag("crafting/dies");
     public static final IOptionalNamedTag<Item> MACHINE_CASTS = thermalTag("crafting/casts");

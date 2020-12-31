@@ -1,0 +1,17 @@
+{
+  "type": "thermal:bottler",
+  "ingredient": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": "industrialforegoing:essence",
+      "amount": 250
+    }
+  ],
+  "result": [
+    {
+      "item": "minecraft:experience_bottle"
+    }
+  ]
+}

@@ -507,7 +507,7 @@ public class CommonEvents {
         // AIR AFFINITY
         int encAirAffinity = getMaxEnchantmentLevel(AIR_AFFINITY, player);
         if (encAirAffinity > 0 && !player.isOnGround()) {
-            event.setNewSpeed(Math.max(event.getNewSpeed(), event.getNewSpeed() * 5.0F));
+            event.setNewSpeed(Math.max(event.getNewSpeed(), event.getOriginalSpeed() * 5.0F));
         }
         // EXCAVATING
         int encExcavating = getHeldEnchantmentLevel(player, EXCAVATING);

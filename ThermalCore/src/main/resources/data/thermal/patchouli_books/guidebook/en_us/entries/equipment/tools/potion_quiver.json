@@ -2,9 +2,9 @@
   "name": "Alchemical Quiver",
   "icon": "thermal:potion_quiver",
   "category": "thermal:tools",
-
   "read_by_default": true,
   "flag": "mod:thermal_innovation",
+
   "pages": [
     {
       "type": "text",

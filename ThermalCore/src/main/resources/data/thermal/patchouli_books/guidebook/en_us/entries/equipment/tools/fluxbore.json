@@ -2,13 +2,13 @@
   "name": "Fluxbore",
   "icon": "thermal:flux_drill",
   "category": "thermal:tools",
-
   "read_by_default": true,
   "flag": "mod:thermal_innovation",
+
   "pages": [
     {
       "type": "text",
-      "text": "Uses RF to mine stone- and dirt-type blocks efficiently. It can be charged and augmented in the Tinker's Workbench."
+      "text": "Uses RF to mine stone- and dirt-type blocks efficiently. It can be charged and augmented in the Tinker's Workbench. A reinforced or higher integral component is needed to mine obsidian."
     },
     {
       "type": "crafting",

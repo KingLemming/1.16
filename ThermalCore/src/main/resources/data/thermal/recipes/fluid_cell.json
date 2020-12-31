@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " R ",
+    "RXR",
     "ICI",
-    " P "
+    "RPR"
   ],
   "key": {
     "C": {
@@ -12,11 +12,14 @@
     "I": {
       "tag": "forge:ingots/iron"
     },
-    "R": {
-      "tag": "thermal:glass/hardened"
-    },
     "P": {
       "item": "thermal:redstone_servo"
+    },
+    "R": {
+      "item": "thermal:cured_rubber"
+    },
+    "X": {
+      "tag": "thermal:glass/hardened"
     }
   },
   "result": {

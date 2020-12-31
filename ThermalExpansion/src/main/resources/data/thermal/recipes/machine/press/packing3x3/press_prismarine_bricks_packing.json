@@ -2,7 +2,7 @@
   "type": "thermal:press",
   "input": [
     {
-      "tag": "forge:gems/prismarine",
+      "item": "minecraft:prismarine_shard",
       "count": 9
     },
     {

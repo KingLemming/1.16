@@ -61,6 +61,9 @@ public class TCoreBlockStateProvider extends BlockStateProviderCoFH {
 
         oreBlock(reg.getSup(ID_RUBY_ORE));
         oreBlock(reg.getSup(ID_SAPPHIRE_ORE));
+
+        oreBlock(reg.getSup(ID_OIL_SAND));
+        oreBlock(reg.getSup(ID_OIL_RED_SAND));
     }
 
     private void registerStorage(DeferredRegisterCoFH<Block> reg) {

@@ -1,15 +1,22 @@
 package cofh.core.util.helpers;
 
+import net.minecraft.block.AbstractRailBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.Property;
+import net.minecraft.state.properties.ChestType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Collection;
 import java.util.EnumMap;
 import java.util.function.ToIntFunction;
+
+import static net.minecraft.state.properties.BlockStateProperties.*;
 
 /**
  * Contains various helper functions to assist with {@link Block} and Block-related manipulation and interaction.
@@ -78,6 +85,104 @@ public class BlockHelper {
     // endregion
 
     // region ROTATION
+    public static boolean attemptRotateBlock(BlockState state, World world, BlockPos pos) {
+
+        Collection<Property<?>> properties = state.getProperties();
+
+        // DOORS, BEDS, END PORTAL FRAMES
+        if (properties.contains(DOOR_HINGE) || properties.contains(BED_PART) || properties.contains(EYE)) {
+            return false;
+        }
+        // DOUBLE CHESTS
+        if (properties.contains(CHEST_TYPE) && state.get(CHEST_TYPE) != ChestType.SINGLE) {
+            return false;
+        }
+        // EXTENDED PISTONS
+        if (properties.contains(EXTENDED) && state.get(EXTENDED)) {
+            return false;
+        }
+        BlockState rotState;
+
+        if (properties.contains(FACING)) {
+            int index = state.get(FACING).getIndex();
+            for (int i = 1; i < 6; ++i) {
+                rotState = state.with(FACING, Direction.byIndex(index + i));
+                if (rotState != state && rotState.isValidPosition(world, pos)) {
+                    world.setBlockState(pos, rotState);
+                    if (rotState.canProvidePower()) {
+                        Block block = rotState.getBlock();
+                        world.notifyNeighborsOfStateChange(pos, block);
+                        if (rotState.getStrongPower(world, pos, rotState.get(FACING)) > 0) {
+                            world.notifyNeighborsOfStateChange(pos.offset(state.get(FACING).getOpposite()), block);
+                            world.notifyNeighborsOfStateChange(pos.offset(rotState.get(FACING).getOpposite()), block);
+                        }
+                    }
+                    return true;
+                }
+            }
+            return true;
+        }
+        if (properties.contains(HORIZONTAL_FACING)) {
+            int index = state.get(HORIZONTAL_FACING).getHorizontalIndex();
+            for (int i = 1; i < 4; ++i) {
+                rotState = state.with(HORIZONTAL_FACING, Direction.byHorizontalIndex(index + i));
+                if (rotState != state && rotState.isValidPosition(world, pos)) {
+                    world.setBlockState(pos, rotState);
+                    if (rotState.canProvidePower()) {
+                        Block block = rotState.getBlock();
+                        world.notifyNeighborsOfStateChange(pos, block);
+                        if (rotState.getStrongPower(world, pos, rotState.get(HORIZONTAL_FACING)) > 0) {
+                            world.notifyNeighborsOfStateChange(pos.offset(state.get(HORIZONTAL_FACING).getOpposite()), block);
+                            world.notifyNeighborsOfStateChange(pos.offset(rotState.get(HORIZONTAL_FACING).getOpposite()), block);
+                        }
+                    }
+                    return true;
+                }
+            }
+            return true;
+        }
+        if (properties.contains(AXIS)) {
+            switch (state.get(AXIS)) {
+                case Y:
+                    rotState = state.with(AXIS, Direction.Axis.X);
+                    break;
+                case X:
+                    rotState = state.with(AXIS, Direction.Axis.Z);
+                    break;
+                default:
+                    rotState = state.with(AXIS, Direction.Axis.Y);
+                    break;
+            }
+            if (rotState != state && rotState.isValidPosition(world, pos)) {
+                world.setBlockState(pos, rotState);
+            }
+            return true;
+        }
+        if (properties.contains(FACING_EXCEPT_UP)) {
+            rotState = state.with(FACING_EXCEPT_UP, Rotation.CLOCKWISE_90.rotate(state.get(FACING_EXCEPT_UP)));
+            if (rotState != state && rotState.isValidPosition(world, pos)) {
+                world.setBlockState(pos, rotState);
+            }
+            return true;
+        }
+        if (properties.contains(ROTATION_0_15)) {
+            rotState = state.with(ROTATION_0_15, (state.get(ROTATION_0_15) + 1) % 16);
+            if (rotState != state && rotState.isValidPosition(world, pos)) {
+                world.setBlockState(pos, rotState);
+                return true;
+            }
+        }
+        // RAILS
+        if (state.getBlock() instanceof AbstractRailBlock) {
+            rotState = state.rotate(world, pos, Rotation.CLOCKWISE_90);
+            if (rotState != state && rotState.isValidPosition(world, pos)) {
+                world.setBlockState(pos, rotState);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static Direction left(Direction face) {
 
         return SIDE_LEFT_LOOKUP.get(face);

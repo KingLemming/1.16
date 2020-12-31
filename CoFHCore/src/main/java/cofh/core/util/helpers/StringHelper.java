@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.*;
 import net.minecraftforge.fluids.FluidStack;
+import org.apache.commons.lang3.StringUtils;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -42,7 +43,7 @@ public final class StringHelper {
 
     public static String format(long number) {
 
-        return NumberFormat.getInstance().format(number);
+        return StringUtils.normalizeSpace(NumberFormat.getInstance().format(number));
     }
 
     public static IFormattableTextComponent getFluidName(FluidStack stack) {
@@ -85,10 +86,10 @@ public final class StringHelper {
 
     public static String getScaledNumber(long number) {
 
-        if (number >= 1000000000) {
-            return number / 1000000000 + "." + (number % 1000000000 / 100000000) + (number % 100000000 / 10000000) + "G";
-        } else if (number >= 1000000) {
-            return number / 1000000 + "." + (number % 1000000 / 100000) + (number % 100000 / 10000) + "M";
+        if (number >= 1_000_000_000) {
+            return number / 1_000_000_000 + "." + (number % 1_000_000_000 / 100_000_000) + (number % 100_000_000 / 10_000_000) + "G";
+        } else if (number >= 1_000_000) {
+            return number / 1_000_000 + "." + (number % 1_000_000 / 100_000) + (number % 100_000 / 10_000) + "M";
         } else if (number >= 1000) {
             return number / 1000 + "." + (number % 1000 / 100) + (number % 100 / 10) + "k";
         } else {

@@ -2,9 +2,9 @@
   "name": "Beekeeper's Suit",
   "icon": "thermal:beekeeper_chestplate",
   "category": "thermal:armor",
-
   "read_by_default": true,
   "flag": "mod:thermal_cultivation",
+
   "pages": [
     {
       "type": "text",
@@ -14,13 +14,11 @@
       "type": "crafting",
       "recipe": "thermal:beekeeper_fabric",
       "text": "Fabric used for all beekeeper equipment."
-
     },
     {
       "type": "crafting",
       "recipe": "thermal:armor/beekeeper_helmet",
       "recipe2": "thermal:armor/beekeeper_chestplate"
-
     },
     {
       "type": "crafting",

@@ -3,14 +3,13 @@
   "icon": "thermal:lumium_gear",
   "category": "thermal:links",
   "read_by_default": true,
+
   "pages": [
     {
       "type": "link",
       "url": "https://twitter.com/KingLemmingCoFH",
       "link_text": "King Lemming's Twitter",
       "text": "Want to keep up with the King himself? Follow him on Twitter!"
-
-
     },
     {
       "type": "spotlight",
@@ -18,5 +17,4 @@
       "text": "Fun Fact! Lumium gets its name from its luminescent properties!"
     }
   ]
-
 }

@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " R ",
+    "RXR",
     "ICI",
-    " P "
+    "RPR"
   ],
   "key": {
     "C": {
@@ -12,11 +12,14 @@
     "I": {
       "tag": "forge:ingots/iron"
     },
-    "R": {
-      "item": "minecraft:redstone_block"
-    },
     "P": {
       "item": "thermal:rf_coil"
+    },
+    "R": {
+      "item": "thermal:cured_rubber"
+    },
+    "X": {
+      "item": "minecraft:redstone_block"
     }
   },
   "result": {

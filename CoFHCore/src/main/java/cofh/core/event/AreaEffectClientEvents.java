@@ -1,7 +1,6 @@
 package cofh.core.event;
 
 import cofh.core.capability.templates.AreaEffectItemWrapper;
-import cofh.core.util.RayTracer;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -17,15 +16,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.DrawHighlightEvent;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
-import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -33,7 +27,6 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 
 import static cofh.core.capability.CapabilityAreaEffect.AREA_EFFECT_ITEM_CAPABILITY;
-import static cofh.core.init.CoreConfig.enableAreaEffectBlockBreaking;
 import static cofh.core.util.constants.Constants.ID_COFH_CORE;
 import static cofh.core.util.helpers.AreaEffectHelper.validAreaEffectItem;
 import static cofh.core.util.helpers.AreaEffectHelper.validAreaEffectMiningItem;
@@ -80,53 +73,26 @@ public class AreaEffectClientEvents {
             }
         }
         matrix.pop();
-    }
 
-    @SubscribeEvent(priority = EventPriority.LOW)
-    public static void renderBlockDamageProgress(RenderWorldLastEvent event) {
-
-        if (!enableAreaEffectBlockBreaking) {
-            return;
-        }
         PlayerController controller = Minecraft.getInstance().playerController;
-        if (controller == null) {
+        if (controller == null || !controller.isHittingBlock) {
             return;
         }
-        PlayerEntity player = Minecraft.getInstance().player;
-        if (player == null) {
-            return;
-        }
-        ItemStack stack = player.getHeldItemMainhand();
-
         if (!validAreaEffectMiningItem(stack)) {
             return;
         }
-        Entity renderEntity = Minecraft.getInstance().getRenderViewEntity();
-        if (renderEntity == null) {
-            return;
-        }
-        BlockRayTraceResult traceResult = RayTracer.retrace(player, RayTraceContext.FluidMode.NONE);
-        if (traceResult.getType() != RayTraceResult.Type.BLOCK) {
-            return;
-        }
-        ImmutableList<BlockPos> areaBlocks = stack.getCapability(AREA_EFFECT_ITEM_CAPABILITY).orElse(new AreaEffectItemWrapper(stack)).getAreaEffectBlocks(traceResult.getPos(), player);
-        if (controller.isHittingBlock) {
-            drawBlockDamageTexture(event.getContext(), event.getMatrixStack(), Minecraft.getInstance().gameRenderer.getActiveRenderInfo(), player.getEntityWorld(), areaBlocks);
-        }
+        drawBlockDamageTexture(controller, event.getContext(), event.getMatrix(), Minecraft.getInstance().gameRenderer.getActiveRenderInfo(), player.getEntityWorld(), areaBlocks);
     }
 
     // region HELPERS
-    private static void drawBlockDamageTexture(WorldRenderer worldRender, MatrixStack matrixStackIn, ActiveRenderInfo renderInfo, World world, List<BlockPos> areaBlocks) {
+    private static void drawBlockDamageTexture(PlayerController controller, WorldRenderer worldRender, MatrixStack matrixStackIn, ActiveRenderInfo renderInfo, World world, List<BlockPos> areaBlocks) {
 
         double d0 = renderInfo.getProjectedView().x;
         double d1 = renderInfo.getProjectedView().y;
         double d2 = renderInfo.getProjectedView().z;
 
-        if (Minecraft.getInstance().playerController == null) {
-            return;
-        }
-        int progress = (int) (Minecraft.getInstance().playerController.curBlockDamageMP * 10.0F) - 1;
-        if (progress < 0) {
+        int progress = (int) (controller.curBlockDamageMP * 10.0F) - 1;
+        if (progress < 0 || progress > 10) {
             return;
         }
         progress = Math.min(progress + 1, 9); // Ensure that for whatever reason the progress level doesn't go OOB.
@@ -134,13 +100,12 @@ public class AreaEffectClientEvents {
         BlockRendererDispatcher dispatcher = Minecraft.getInstance().getBlockRendererDispatcher();
         IVertexBuilder vertexBuilder = worldRender.renderTypeTextures.getCrumblingBufferSource().getBuffer(ModelBakery.DESTROY_RENDER_TYPES.get(progress));
 
-        double scale = 0.95D;
-
         for (BlockPos pos : areaBlocks) {
             matrixStackIn.push();
-            matrixStackIn.translate(scale * (pos.getX() - d0), scale * (pos.getY() - d1), scale * (pos.getZ() - d2));
-            IVertexBuilder matrixBuilder = new MatrixApplyingVertexBuilder(vertexBuilder, matrixStackIn.getLast().getMatrix(), matrixStackIn.getLast().getNormal());
-            dispatcher.renderModel(world.getBlockState(pos), pos, world, matrixStackIn, matrixBuilder, false, world.rand, EmptyModelData.INSTANCE);
+            matrixStackIn.translate((double) pos.getX() - d0, (double) pos.getY() - d1, (double) pos.getZ() - d2);
+            MatrixStack.Entry matrixEntry = matrixStackIn.getLast();
+            IVertexBuilder matrixBuilder = new MatrixApplyingVertexBuilder(vertexBuilder, matrixEntry.getMatrix(), matrixEntry.getNormal());
+            dispatcher.renderBlockDamage(world.getBlockState(pos), pos, world, matrixStackIn, matrixBuilder);
             matrixStackIn.pop();
         }
     }

@@ -36,6 +36,7 @@ public class TCulIDs {
 
     public static final String ID_CHOCOLATE_CAKE = "chocolate_cake";
     public static final String ID_SPICE_CAKE = "spice_cake";
+    public static final String ID_XP_STEW = "xp_stew";
     // endregion
 
     // region BLOCKS

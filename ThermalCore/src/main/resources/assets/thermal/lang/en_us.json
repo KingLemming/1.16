@@ -17,6 +17,9 @@
   "block.thermal.ruby_ore": "Ruby Ore",
   "block.thermal.sapphire_ore": "Sapphire Ore",
 
+  "block.thermal.oil_sand": "Bituminous Sand",
+  "block.thermal.oil_red_sand": "Bituminous Red Sand",
+
   "block.thermal.apatite_block": "Block of Apatite",
   "block.thermal.cinnabar_block": "Block of Cinnabar",
   "block.thermal.niter_block": "Block of Niter",
@@ -90,7 +93,9 @@
   "fluid.thermal.biofuel": "Grassoline",
   "fluid.thermal.creosote": "Creosote Oil",
   "fluid.thermal.crude_oil": "Crude Oil",
+  "fluid.thermal.heavy_oil": "Heavy Oil",
   "fluid.thermal.latex": "Latex",
+  "fluid.thermal.light_oil": "Light Oil",
   "fluid.thermal.refined_fuel": "Refined Fuel",
   "fluid.thermal.resin": "Resin",
   "fluid.thermal.sap": "Sap",
@@ -132,7 +137,9 @@
   "item.thermal.biofuel_bucket": "Grassoline Bucket",
   "item.thermal.creosote_bucket": "Creosote Oil Bucket",
   "item.thermal.crude_oil_bucket": "Crude Oil Bucket",
+  "item.thermal.heavy_oil_bucket": "Heavy Oil Bucket",
   "item.thermal.latex_bucket": "Latex Bucket",
+  "item.thermal.light_oil_bucket": "Light Oil Bucket",
   "item.thermal.refined_fuel_bucket": "Refined Fuel Bucket",
   "item.thermal.resin_bucket": "Resin Bucket",
   "item.thermal.sap_bucket": "Sap Bucket",
@@ -592,6 +599,7 @@
   "item.thermal.tea_seeds": "Tea Seeds",
   "item.thermal.tomato": "Tomato",
   "item.thermal.tomato_seeds": "Tomato Seeds",
+  "item.thermal.xp_stew": "Perspicacious Stew",
 
   "item.thermal.watering_can": "Watering Can",
   "item.thermal.watering_can.desc": "Improves plant growth using water.",

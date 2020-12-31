@@ -2,10 +2,8 @@
   "name": "Hive Hopper",
   "icon": "thermal:device_hive_extractor",
   "category": "thermal:devices",
-
   "read_by_default": true,
   "flag": "mod:thermal_cultivation",
-
 
   "pages": [
     {

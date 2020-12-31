@@ -41,7 +41,7 @@ public class PyrolyzerRecipeCategory extends ThermalRecipeCategory<PyrolyzerReci
 
         progressBackground = Drawables.getDrawables(guiHelper).getProgress(Drawables.PROGRESS_ARROW);
         progressFluidBackground = Drawables.getDrawables(guiHelper).getProgressFill(Drawables.PROGRESS_ARROW_FLUID);
-        speedBackground = Drawables.getDrawables(guiHelper).getScale(Drawables.SCALE_SPIN);
+        speedBackground = Drawables.getDrawables(guiHelper).getScale(Drawables.SCALE_FLAME);
 
         tankBackground = Drawables.getDrawables(guiHelper).getTank(Drawables.TANK_MEDIUM);
         tankOverlay = Drawables.getDrawables(guiHelper).getTankOverlay(Drawables.TANK_MEDIUM);

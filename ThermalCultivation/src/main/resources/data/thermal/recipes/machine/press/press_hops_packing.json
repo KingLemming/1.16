@@ -1,0 +1,18 @@
+{
+  "type": "thermal:press",
+  "input": [
+    {
+      "item": "thermal:hops",
+      "count": 9
+    },
+    {
+      "item": "thermal:press_packing_3x3_die"
+    }
+  ],
+  "result": [
+    {
+      "item": "thermal:hops_block"
+    }
+  ],
+  "energy": 400
+}

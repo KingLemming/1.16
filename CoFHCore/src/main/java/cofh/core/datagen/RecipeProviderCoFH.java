@@ -4,6 +4,7 @@ import cofh.core.registries.DeferredRegisterCoFH;
 import cofh.core.util.FlagManager;
 import cofh.core.util.FlagRecipeCondition;
 import net.minecraft.advancements.criterion.*;
+import net.minecraft.block.Block;
 import net.minecraft.data.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
@@ -103,8 +104,8 @@ public class RecipeProviderCoFH extends RecipeProvider implements IConditionBuil
     // region HELPERS
     protected void generatePackingRecipe(Consumer<IFinishedRecipe> consumer, Item storage, Item individual, String suffix) {
 
-        String storageName = storage.getRegistryName().getPath();
-        String individualName = individual.getRegistryName().getPath();
+        String storageName = name(storage);
+        String individualName = name(individual);
 
         ShapedRecipeBuilder.shapedRecipe(storage)
                 .key('#', individual)
@@ -117,8 +118,8 @@ public class RecipeProviderCoFH extends RecipeProvider implements IConditionBuil
 
     protected void generatePackingRecipe(Consumer<IFinishedRecipe> consumer, Item storage, Item individual, ITag.INamedTag<Item> tag, String suffix) {
 
-        String storageName = storage.getRegistryName().getPath();
-        String individualName = individual.getRegistryName().getPath();
+        String storageName = name(storage);
+        String individualName = name(individual);
 
         ShapedRecipeBuilder.shapedRecipe(storage)
                 .key('I', individual)
@@ -132,8 +133,8 @@ public class RecipeProviderCoFH extends RecipeProvider implements IConditionBuil
 
     protected void generateUnpackingRecipe(Consumer<IFinishedRecipe> consumer, Item storage, Item individual, String suffix) {
 
-        String storageName = storage.getRegistryName().getPath();
-        String individualName = individual.getRegistryName().getPath();
+        String storageName = name(storage);
+        String individualName = name(individual);
 
         ShapelessRecipeBuilder.shapelessRecipe(individual, 9)
                 .addIngredient(storage)
@@ -211,8 +212,8 @@ public class RecipeProviderCoFH extends RecipeProvider implements IConditionBuil
                     .patternLine(" # ")
                     .patternLine("#i#")
                     .patternLine(" # ")
-                    .addCriterion("has_" + ingot.getRegistryName().getPath(), hasItem(ingotTag))
-                    .build(consumer, this.modid + ":parts/" + gear.getRegistryName().getPath());
+                    .addCriterion("has_" + name(ingot), hasItem(ingotTag))
+                    .build(consumer, this.modid + ":parts/" + name(gear));
         }
         if (gem != null) {
             ShapedRecipeBuilder.shapedRecipe(gear)
@@ -221,8 +222,8 @@ public class RecipeProviderCoFH extends RecipeProvider implements IConditionBuil
                     .patternLine(" # ")
                     .patternLine("#i#")
                     .patternLine(" # ")
-                    .addCriterion("has_" + gem.getRegistryName().getPath(), hasItem(gemTag))
-                    .build(consumer, this.modid + ":parts/" + gear.getRegistryName().getPath());
+                    .addCriterion("has_" + name(gem), hasItem(gemTag))
+                    .build(consumer, this.modid + ":parts/" + name(gear));
         }
     }
 
@@ -237,8 +238,8 @@ public class RecipeProviderCoFH extends RecipeProvider implements IConditionBuil
                 .patternLine(" # ")
                 .patternLine("#i#")
                 .patternLine(" # ")
-                .addCriterion("has_" + material.getRegistryName().getPath(), hasItem(tag))
-                .build(consumer, this.modid + ":parts/" + gear.getRegistryName().getPath());
+                .addCriterion("has_" + name(material), hasItem(tag))
+                .build(consumer, this.modid + ":parts/" + name(gear));
     }
 
     protected void generateSmeltingAndBlastingRecipes(DeferredRegisterCoFH<Item> reg, Consumer<IFinishedRecipe> consumer, String material, float xp) {
@@ -280,12 +281,12 @@ public class RecipeProviderCoFH extends RecipeProvider implements IConditionBuil
     protected void generateSmeltingAndBlastingRecipes(DeferredRegisterCoFH<Item> reg, Consumer<IFinishedRecipe> consumer, Item input, Item output, float xp, String folder, String suffix) {
 
         CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(input), output, xp, 200)
-                .addCriterion("has_" + input.getRegistryName().getPath(), hasItem(input))
-                .build(consumer, this.modid + ":" + folder + "/" + output.getRegistryName().getPath() + "_from" + suffix + "_smelting");
+                .addCriterion("has_" + name(input), hasItem(input))
+                .build(consumer, this.modid + ":" + folder + "/" + name(output) + "_from" + suffix + "_smelting");
 
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(input), output, xp, 100)
-                .addCriterion("has_" + input.getRegistryName().getPath(), hasItem(input))
-                .build(consumer, this.modid + ":" + folder + "/" + output.getRegistryName().getPath() + "_from" + suffix + "_blasting");
+                .addCriterion("has_" + name(input), hasItem(input))
+                .build(consumer, this.modid + ":" + folder + "/" + name(output) + "_from" + suffix + "_blasting");
     }
 
     // TODO: Change if Mojang implements some better defaults...
@@ -297,6 +298,16 @@ public class RecipeProviderCoFH extends RecipeProvider implements IConditionBuil
     protected static Tags.IOptionalNamedTag<Item> forgeTag(String name) {
 
         return ItemTags.createOptional(new ResourceLocation(ID_FORGE, name));
+    }
+
+    protected static String name(Block block) {
+
+        return block.getRegistryName() == null ? "" : block.getRegistryName().getPath();
+    }
+
+    protected static String name(Item item) {
+
+        return item.getRegistryName() == null ? "" : item.getRegistryName().getPath();
     }
     // endregion
 

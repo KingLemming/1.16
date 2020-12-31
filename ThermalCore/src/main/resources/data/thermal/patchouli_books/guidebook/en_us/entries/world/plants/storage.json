@@ -3,6 +3,7 @@
   "icon": "thermal:apple_block",
   "read_by_default": true,
   "category": "thermal:plants",
+
   "pages": [
     {
       "type": "text",

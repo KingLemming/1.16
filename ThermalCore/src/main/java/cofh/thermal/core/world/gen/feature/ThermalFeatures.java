@@ -1,6 +1,7 @@
 package cofh.thermal.core.world.gen.feature;
 
 import cofh.core.world.gen.feature.ConfiguredFeatureCoFH;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -8,6 +9,8 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
+import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.placement.DepthAverageConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
@@ -77,8 +80,21 @@ public class ThermalFeatures {
                 new ConfiguredFeatureCoFH<>(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BLOCKS.get(ID_NICKEL_ORE).getDefaultState(), 8), getFlag(FLAG_GEN_NICKEL))
                         .withPlacement(Placement.RANGE.configure(topRange(0, 120)))
                         .square()
-                        .func_242731_b(2)
-        );
+                        .func_242731_b(2));
+
+        OIL_SAND = register("oil_sand",
+                new ConfiguredFeatureCoFH<>(Feature.ORE, new OreFeatureConfig(SAND, BLOCKS.get(ID_OIL_SAND).getDefaultState(), 24), getFlag(FLAG_GEN_OIL))
+                        .setChance(0.3F)
+                        .withPlacement(Placement.RANGE.configure(topRange(40, 80)))
+                        .square()
+                        .func_242731_b(2));
+
+        OIL_RED_SAND = register("oil_red_sand",
+                new ConfiguredFeatureCoFH<>(Feature.ORE, new OreFeatureConfig(RED_SAND, BLOCKS.get(ID_OIL_RED_SAND).getDefaultState(), 24), getFlag(FLAG_GEN_OIL))
+                        .setChance(0.3F)
+                        .withPlacement(Placement.RANGE.configure(topRange(40, 80)))
+                        .square()
+                        .func_242731_b(2));
     }
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
@@ -109,5 +125,11 @@ public class ThermalFeatures {
 
     public static ConfiguredFeature<?, ?> ORE_RUBY;
     public static ConfiguredFeature<?, ?> ORE_SAPPHIRE;
+
+    public static ConfiguredFeature<?, ?> OIL_SAND;
+    public static ConfiguredFeature<?, ?> OIL_RED_SAND;
+
+    public static final RuleTest SAND = new BlockMatchRuleTest(Blocks.SAND);
+    public static final RuleTest RED_SAND = new BlockMatchRuleTest(Blocks.RED_SAND);
 
 }

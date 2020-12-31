@@ -131,14 +131,6 @@ public class CoreConfig {
 
         CLIENT_CONFIG.pop();
 
-        CLIENT_CONFIG.push("Render");
-
-        clientEnableAreaEffectBlockBreaking = CLIENT_CONFIG
-                .comment("If TRUE, Area Effect Block breaking will be rendered. Disable if you are using buggy mods such as OptiFine which apparently create issues with this. Please also report the issue to OptiFine.")
-                .define("Render Area Effect Block Breaking", enableAreaEffectBlockBreaking);
-
-        CLIENT_CONFIG.pop();
-
         clientSpec = CLIENT_CONFIG.build();
 
         refreshClientConfig();
@@ -192,8 +184,6 @@ public class CoreConfig {
 
         alwaysShowDetails = clientAlwaysShowDetails.get();
         holdShiftForDetails = clientHoldShiftForDetails.get();
-
-        enableAreaEffectBlockBreaking = clientEnableAreaEffectBlockBreaking.get();
     }
 
     private static void refreshEnchantmentConfig() {
@@ -229,8 +219,6 @@ public class CoreConfig {
     public static boolean alwaysShowDetails = false;
     public static boolean holdShiftForDetails = true;
 
-    public static boolean enableAreaEffectBlockBreaking = true;
-
     private static BooleanValue serverImprovedFeatherFalling;
     private static BooleanValue serverImprovedMending;
 
@@ -246,8 +234,6 @@ public class CoreConfig {
 
     private static BooleanValue clientAlwaysShowDetails;
     private static BooleanValue clientHoldShiftForDetails;
-
-    private static BooleanValue clientEnableAreaEffectBlockBreaking;
 
     private static BooleanValue enableHolding;
     private static BooleanValue treasureHolding;

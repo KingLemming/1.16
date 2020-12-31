@@ -1,9 +1,9 @@
 {
   "name": "Catalysts",
   "icon": "thermal:rich_slag",
+  "category": "thermal:materials",
   "read_by_default": true,
   "flag": "mod:thermal_expansion",
-  "category": "thermal:materials",
 
   "pages": [
     {
@@ -11,7 +11,7 @@
       "text": "Catalysts are optional items consumed to improve the yield of certain recipes. Machines and their catalysts are listed on the next page with multipliers. The main outputs of a recipe are scaled by $(o)P$()rimary. Auxiliary outputs are scaled by $(o)S$()econdary. The energy per operation is scaled by $(o)E$()nergy. Finally, the odds a catalyst is consumed in an operation is indicated by the $(o)U$()sage chance."
     },
     {
-      "type": "catalystpage",
+      "type": "catalyst_page",
       "text": "$(l:thermal:technology/machines/pulverizer)Pulverizer$(/l)$(br)Flint$(br)Basalz Powd.$(br2)$(l:thermal:technology/machines/insolator)Phytogenic Insolator$(/l)$(br)Bonemeal$(br)Phyto-Gro$(br2)$(l:thermal:technology/machines/smelter)Induction Smelter$(/l)$(br)Sand$(br)Blaze Powder$(br)Rich Slag$(br)Cinnabar",
       "horz": "-----------------$(br)-----------------$(br)-----------------$(br2)-----------------$(br)-----------------$(br)-----------------$(br2)-----------------$(br)-----------------$(br)-----------------$(br)-----------------$(br)-----------------",
       "vert": "$(br2)|$(br)|$(br)|$(br2) $(br2) $(br2)|$(br)|$(br)|$(br2) $(br2) $(br2)|$(br)|$(br)|$(br)|$(br)|$(br)|$(br)|",

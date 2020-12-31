@@ -1,12 +1,13 @@
 {
   "name": "Where is Dynamics?",
   "icon": "thermal:iron_gear",
-  "read_by_default": true,
   "category": "thermal:items_and_xfer",
+  "read_by_default": true,
+
   "pages": [
     {
       "type": "text",
-      "text": "King Lemming is focusing his development on 1.16, so it is very unlikely that Thermal Dynamics will come to 1.15. Dynamics takes a lot of time to develop because of how many features it has, so please be patient."
+      "text": "King Lemming is focusing his development on 1.16, but is currently the sole active developer. Dynamics takes a lot of time to develop because of how many features it has, so please be patient."
     }
   ]
 }

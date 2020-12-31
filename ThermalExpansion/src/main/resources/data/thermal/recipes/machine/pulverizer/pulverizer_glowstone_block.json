@@ -1,7 +1,7 @@
 {
   "type": "thermal:pulverizer",
   "ingredient": {
-    "tag": "forge:storage_blocks/glowstone"
+    "item": "minecraft:glowstone"
   },
   "result": [
     {

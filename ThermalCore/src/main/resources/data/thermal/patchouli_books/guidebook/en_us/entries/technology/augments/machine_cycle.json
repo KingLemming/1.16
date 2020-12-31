@@ -2,9 +2,9 @@
   "name": "Cyclical Processing",
   "icon": "thermal:machine_cycle_augment",
   "category": "thermal:augments",
-
   "read_by_default": true,
   "flag": "mod:thermal_expansion",
+
   "pages": [
     {
       "type": "crafting",

@@ -10,7 +10,6 @@ import cofh.core.network.packet.client.TileControlPacket;
 import cofh.core.network.packet.client.TileRedstonePacket;
 import cofh.core.network.packet.client.TileStatePacket;
 import cofh.core.tileentity.TileCoFH;
-import cofh.core.util.StorageGroup;
 import cofh.core.util.TimeTracker;
 import cofh.core.util.Utils;
 import cofh.core.util.control.*;
@@ -42,7 +41,9 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -54,6 +55,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static cofh.core.util.GuiHelper.*;
+import static cofh.core.util.StorageGroup.ACCESSIBLE;
 import static cofh.core.util.StorageGroup.INTERNAL;
 import static cofh.core.util.constants.Constants.*;
 import static cofh.core.util.constants.NBTTags.*;
@@ -115,6 +117,7 @@ public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile
     public void remove() {
 
         super.remove();
+
         energyCap.invalidate();
         itemCap.invalidate();
         fluidCap.invalidate();
@@ -535,48 +538,6 @@ public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile
     }
     // endregion
 
-    // region INamedContainerProvider
-    @Override
-    public ITextComponent getDisplayName() {
-
-        return new StringTextComponent(getType().getRegistryName().getPath());
-    }
-    // endregion
-
-    // region ITileCallback
-    @Override
-    public void onInventoryChange(int slot) {
-
-        /* Implicit requirement here that augments always come LAST in slot order.
-        This isn't a bad assumption/rule though, as it's a solid way to handle it.*/
-        if (slot >= invSize() - augSize()) {
-            updateAugmentState();
-        }
-    }
-
-    @Override
-    public void onControlUpdate() {
-
-        TileControlPacket.sendToClient(this);
-    }
-    // endregion
-
-    // region IConveyableData
-    @Override
-    public void readConveyableData(PlayerEntity player, CompoundNBT tag) {
-
-        redstoneControl.read(tag);
-
-        onControlUpdate();
-    }
-
-    @Override
-    public void writeConveyableData(PlayerEntity player, CompoundNBT tag) {
-
-        redstoneControl.write(tag);
-    }
-    // endregion
-
     // region AUGMENTS
     protected float baseMod = 1.0F;
     protected float energyStorageMod = 1.0F;
@@ -695,6 +656,23 @@ public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile
     protected LazyOptional<?> itemCap = LazyOptional.empty();
     protected LazyOptional<?> fluidCap = LazyOptional.empty();
 
+    protected void updateHandlers() {
+
+        LazyOptional<?> prevEnergyCap = energyCap;
+        energyCap = energyStorage.getCapacity() > 0 ? LazyOptional.of(() -> energyStorage) : LazyOptional.empty();
+        prevEnergyCap.invalidate();
+
+        LazyOptional<?> prevItemCap = itemCap;
+        IItemHandler invHandler = inventory.getHandler(ACCESSIBLE);
+        itemCap = inventory.hasAccessibleSlots() ? LazyOptional.of(() -> invHandler) : LazyOptional.empty();
+        prevItemCap.invalidate();
+
+        LazyOptional<?> prevFluidCap = fluidCap;
+        IFluidHandler fluidHandler = tankInv.getHandler(ACCESSIBLE);
+        fluidCap = tankInv.hasAccessibleTanks() ? LazyOptional.of(() -> fluidHandler) : LazyOptional.empty();
+        prevFluidCap.invalidate();
+    }
+
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
@@ -702,10 +680,10 @@ public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile
         if (cap == CapabilityEnergy.ENERGY && energyStorage.getMaxEnergyStored() > 0) {
             return getEnergyCapability(side);
         }
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && inventory.hasSlots()) {
+        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && inventory.hasAccessibleSlots()) {
             return getItemHandlerCapability(side);
         }
-        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY && tankInv.hasTanks()) {
+        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY && tankInv.hasAccessibleTanks()) {
             return getFluidHandlerCapability(side);
         }
         return super.getCapability(cap, side);
@@ -721,18 +699,64 @@ public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile
 
     protected <T> LazyOptional<T> getItemHandlerCapability(@Nullable Direction side) {
 
-        if (!itemCap.isPresent() && inventory.hasSlots()) {
-            itemCap = LazyOptional.of(() -> inventory.getHandler(StorageGroup.ACCESSIBLE));
+        if (!itemCap.isPresent() && inventory.hasAccessibleSlots()) {
+            IItemHandler handler = inventory.getHandler(ACCESSIBLE);
+            itemCap = LazyOptional.of(() -> handler);
         }
         return itemCap.cast();
     }
 
     protected <T> LazyOptional<T> getFluidHandlerCapability(@Nullable Direction side) {
 
-        if (!fluidCap.isPresent() && tankInv.hasTanks()) {
-            fluidCap = LazyOptional.of(() -> tankInv.getHandler(StorageGroup.ACCESSIBLE));
+        if (!fluidCap.isPresent() && tankInv.hasAccessibleTanks()) {
+            IFluidHandler handler = tankInv.getHandler(ACCESSIBLE);
+            fluidCap = LazyOptional.of(() -> handler);
         }
         return fluidCap.cast();
+    }
+    // endregion
+
+    // region INamedContainerProvider
+    @Override
+    public ITextComponent getDisplayName() {
+
+        return new StringTextComponent(getType().getRegistryName().getPath());
+    }
+    // endregion
+
+    // region ITileCallback
+    @Override
+    public void onInventoryChange(int slot) {
+
+        /* Implicit requirement here that augments always come LAST in slot order.
+        This isn't a bad assumption/rule though, as it's a solid way to handle it.*/
+        if (slot >= invSize() - augSize()) {
+            updateAugmentState();
+        }
+    }
+
+    @Override
+    public void onControlUpdate() {
+
+        updateHandlers();
+        callNeighborStateChange();
+        TileControlPacket.sendToClient(this);
+    }
+    // endregion
+
+    // region IConveyableData
+    @Override
+    public void readConveyableData(PlayerEntity player, CompoundNBT tag) {
+
+        redstoneControl.read(tag);
+
+        onControlUpdate();
+    }
+
+    @Override
+    public void writeConveyableData(PlayerEntity player, CompoundNBT tag) {
+
+        redstoneControl.write(tag);
     }
     // endregion
 }

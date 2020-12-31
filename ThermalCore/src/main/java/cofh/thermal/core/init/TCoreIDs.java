@@ -32,6 +32,9 @@ public class TCoreIDs {
 
     public static final String ID_RUBY_ORE = "ruby_ore";
     public static final String ID_SAPPHIRE_ORE = "sapphire_ore";
+
+    public static final String ID_OIL_SAND = "oil_sand";
+    public static final String ID_OIL_RED_SAND = "oil_red_sand";
     // endregion
 
     // region STORAGE
@@ -129,6 +132,8 @@ public class TCoreIDs {
 
     public static final String ID_FLUID_CREOSOTE = "creosote";
     public static final String ID_FLUID_CRUDE_OIL = "crude_oil";
+    public static final String ID_FLUID_HEAVY_OIL = "heavy_oil";
+    public static final String ID_FLUID_LIGHT_OIL = "light_oil";
     public static final String ID_FLUID_REFINED_FUEL = "refined_fuel";
 
     public static final String ID_FLUID_REDSTONE = "redstone";

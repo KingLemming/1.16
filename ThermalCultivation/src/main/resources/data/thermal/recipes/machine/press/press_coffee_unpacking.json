@@ -1,0 +1,19 @@
+{
+  "type": "thermal:press",
+  "input": [
+    {
+      "item": "thermal:coffee_block",
+      "count": 1
+    },
+    {
+      "item": "thermal:press_unpacking_die"
+    }
+  ],
+  "result": [
+    {
+      "item": "thermal:coffee",
+      "count": 9
+    }
+  ],
+  "energy": 400
+}

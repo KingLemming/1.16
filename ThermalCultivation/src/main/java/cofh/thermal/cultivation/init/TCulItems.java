@@ -3,9 +3,10 @@ package cofh.thermal.cultivation.init;
 import cofh.core.item.BlockNamedItemCoFH;
 import cofh.core.item.ItemCoFH;
 import cofh.thermal.cultivation.item.WateringCanItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Rarity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.*;
+import net.minecraft.world.World;
 
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
@@ -70,6 +71,15 @@ public class TCulItems {
         //        ITEMS.register("coffee", () -> new ItemCoFH(new Item.Properties().group(group).food(COFFEE)));
         //        ITEMS.register("dough", () -> new ItemCoFH(new Item.Properties().group(group).food(DOUGH)));
         //        ITEMS.register("flour", () -> new ItemCoFH(new Item.Properties().group(group)));
+        ITEMS.register(ID_XP_STEW, () -> new ItemCoFH(new Item.Properties().maxStackSize(1).group(group).food(XP_STEW).rarity(Rarity.UNCOMMON)) {
+
+            @Override
+            public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+
+                ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);
+                return entityLiving instanceof PlayerEntity && ((PlayerEntity) entityLiving).abilities.isCreativeMode ? itemstack : new ItemStack(Items.BOWL);
+            }
+        });
     }
 
     private static void registerTools() {

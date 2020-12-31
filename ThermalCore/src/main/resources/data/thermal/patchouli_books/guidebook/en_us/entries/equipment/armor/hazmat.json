@@ -14,13 +14,11 @@
       "type": "crafting",
       "recipe": "thermal:hazmat_fabric",
       "text": "Fabric used for all hazmat equipment."
-
     },
     {
       "type": "crafting",
       "recipe": "thermal:armor/hazmat_helmet",
       "recipe2": "thermal:armor/hazmat_chestplate"
-
     },
     {
       "type": "crafting",

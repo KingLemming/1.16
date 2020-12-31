@@ -3,6 +3,7 @@
   "icon": "thermal:earth_charge",
   "category": "thermal:charges",
   "read_by_default": true,
+
   "pages": [
     {
       "type": "text",

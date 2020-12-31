@@ -2,9 +2,9 @@
   "name": "Watering Can",
   "icon": "thermal:watering_can",
   "category": "thermal:tools",
-
   "read_by_default": true,
   "flag": "mod:thermal_cultivation",
+
   "pages": [
     {
       "type": "text",

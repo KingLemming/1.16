@@ -12,6 +12,8 @@ public class ManagedFluidHandler extends SimpleFluidHandler {
     protected List<FluidStorageCoFH> inputTanks;
     protected List<FluidStorageCoFH> outputTanks;
 
+    protected boolean preventInputDrain = false;
+
     public ManagedFluidHandler(@Nullable ITileCallback tile, @Nonnull List<FluidStorageCoFH> inputTanks, @Nonnull List<FluidStorageCoFH> outputTanks) {
 
         super(tile);
@@ -20,6 +22,12 @@ public class ManagedFluidHandler extends SimpleFluidHandler {
         this.outputTanks = outputTanks;
         this.tanks.addAll(inputTanks);
         this.tanks.addAll(outputTanks);
+    }
+
+    public ManagedFluidHandler restrict() {
+
+        preventInputDrain = true;
+        return this;
     }
 
     // region IFluidHandler
@@ -47,13 +55,15 @@ public class ManagedFluidHandler extends SimpleFluidHandler {
                 return ret;
             }
         }
-        for (FluidStorageCoFH tank : inputTanks) {
-            ret = tank.drain(resource, action);
-            if (action.execute()) {
-                onTankChange(0);
-            }
-            if (!ret.isEmpty()) {
-                return ret;
+        if (!preventInputDrain) {
+            for (FluidStorageCoFH tank : inputTanks) {
+                ret = tank.drain(resource, action);
+                if (action.execute()) {
+                    onTankChange(0);
+                }
+                if (!ret.isEmpty()) {
+                    return ret;
+                }
             }
         }
         return FluidStack.EMPTY;
@@ -70,13 +80,15 @@ public class ManagedFluidHandler extends SimpleFluidHandler {
                 return ret;
             }
         }
-        for (FluidStorageCoFH tank : inputTanks) {
-            ret = tank.drain(maxDrain, action);
-            if (action.execute()) {
-                onTankChange(0);
-            }
-            if (!ret.isEmpty()) {
-                return ret;
+        if (!preventInputDrain) {
+            for (FluidStorageCoFH tank : inputTanks) {
+                ret = tank.drain(maxDrain, action);
+                if (action.execute()) {
+                    onTankChange(0);
+                }
+                if (!ret.isEmpty()) {
+                    return ret;
+                }
             }
         }
         return FluidStack.EMPTY;

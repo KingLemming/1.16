@@ -1,8 +1,9 @@
 {
   "name": "Material Storage",
   "icon": "thermal:invar_block",
-  "read_by_default": true,
   "category": "thermal:materials",
+  "read_by_default": true,
+
   "pages": [
     {
       "type": "text",

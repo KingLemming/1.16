@@ -14,13 +14,11 @@
       "type": "crafting",
       "recipe": "thermal:diving_fabric",
       "text": "Fabric used for all diving equipment."
-
     },
     {
       "type": "crafting",
       "recipe": "thermal:armor/diving_helmet",
       "recipe2": "thermal:armor/diving_chestplate"
-
     },
     {
       "type": "crafting",

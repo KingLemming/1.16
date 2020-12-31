@@ -61,7 +61,7 @@ public class PotionFluid extends FluidCoFH {
     public static FluidStack getPotionAsFluid(int amount, Potion type) {
 
         if (type == null || type == Potions.EMPTY) {
-            return null;
+            return FluidStack.EMPTY;
         }
         if (type == Potions.WATER) {
             return new FluidStack(Fluids.WATER, amount);
@@ -99,7 +99,7 @@ public class PotionFluid extends FluidCoFH {
         if (item.equals(Items.POTION)) {
             return getPotionAsFluid(amount, PotionUtils.getPotionFromItem(stack));
         }
-        return null;
+        return FluidStack.EMPTY;
     }
 
     protected static class PotionFluidAttributes extends FluidAttributes {

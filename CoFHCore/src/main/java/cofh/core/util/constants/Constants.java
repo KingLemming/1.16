@@ -69,6 +69,8 @@ public class Constants {
     public static final String ID_ENSORCELLATION = "ensorcellation";
     public static final String ID_OMGOURD = "omgourd";
     public static final String ID_REDSTONE_ARSENAL = "redstone_arsenal";
+
+    public static final String ID_QUARK = "quark";
     // endregion
 
     // region BLOCKSTATE PROPERTIES

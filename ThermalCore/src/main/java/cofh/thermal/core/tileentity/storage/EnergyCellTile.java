@@ -62,6 +62,12 @@ public class EnergyCellTile extends CellTileBase implements ITickableTileEntity 
         }
     }
 
+    @Override
+    public int getLightValue() {
+
+        return levelTracker;
+    }
+
     protected void transferRF() {
 
         if (amountOutput <= 0 || energyStorage.isEmpty()) {
@@ -131,6 +137,8 @@ public class EnergyCellTile extends CellTileBase implements ITickableTileEntity 
     @Override
     protected void updateTrackers(boolean send) {
 
+        prevLight = getLightValue();
+
         int curScale = energyStorage.getEnergyStored() > 0 ? 1 + (int) (energyStorage.getRatio() * 14) : 0;
         if (curScale != compareTracker) {
             compareTracker = curScale;
@@ -148,33 +156,21 @@ public class EnergyCellTile extends CellTileBase implements ITickableTileEntity 
     }
 
     // region CAPABILITIES
-    protected final LazyOptional<?>[] sidedEnergyCaps = new LazyOptional<?>[]{
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty(),
-            LazyOptional.empty()
-    };
-
     @Override
-    protected void updateSidedHandlers() {
-        // ENERGY
-        for (int i = 0; i < 6; ++i) {
-            sidedEnergyCaps[i].invalidate();
-            sidedEnergyCaps[i] = reconfigControl.getSideConfig(i).isInput()
-                    ? LazyOptional.of(() -> energyStorage)
-                    : LazyOptional.empty();
-        }
+    protected void updateHandlers() {
+
+        LazyOptional<?> oldCap = energyCap;
+        energyCap = LazyOptional.of(() -> energyStorage);
+        oldCap.invalidate();
     }
 
     @Override
     protected <T> LazyOptional<T> getEnergyCapability(@Nullable Direction side) {
 
-        if (side == null) {
+        if (side == null || reconfigControl.getSideConfig(side.ordinal()) != SideConfig.SIDE_NONE) {
             return super.getEnergyCapability(side);
         }
-        return sidedEnergyCaps[side.ordinal()].cast();
+        return LazyOptional.empty();
     }
     // endregion
 }

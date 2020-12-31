@@ -36,7 +36,7 @@ public class CellReconfigControlModule extends ReconfigControlModule {
     public SideConfig getSideConfig(Direction side) {
 
         if (side == null || !isReconfigurable()) {
-            return SIDE_ACCESSIBLE;
+            return SIDE_NONE;
         }
         return sides[side.ordinal()];
     }
@@ -49,8 +49,8 @@ public class CellReconfigControlModule extends ReconfigControlModule {
         }
         int ord = side.ordinal();
         sides[ord] = sides[ord].prev();
-        if (sides[ord] == SIDE_ACCESSIBLE || sides[ord] == SIDE_BOTH) {
-            sides[ord] = SIDE_OUTPUT;
+        if (sides[ord] == SIDE_ACCESSIBLE) {
+            sides[ord] = SIDE_BOTH;
         }
         if (Utils.isClientWorld(tile.world())) {
             SideConfigPacket.sendToServer(tile);
@@ -68,7 +68,7 @@ public class CellReconfigControlModule extends ReconfigControlModule {
         }
         int ord = side.ordinal();
         sides[ord] = sides[ord].next();
-        if (sides[ord] == SIDE_ACCESSIBLE || sides[ord] == SIDE_BOTH) {
+        if (sides[ord] == SIDE_ACCESSIBLE) {
             sides[ord] = SIDE_NONE;
         }
         if (Utils.isClientWorld(tile.world())) {

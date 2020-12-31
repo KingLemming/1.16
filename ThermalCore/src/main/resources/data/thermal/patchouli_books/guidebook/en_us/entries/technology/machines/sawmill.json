@@ -8,7 +8,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "The Sawmill is a machine that cuts logs into planks more efficiently than crafting. It produces $(l:thermal:world/plants/treeproducts)Sawdust$(/l) as a byproduct."
+      "text": "The Sawmill is a machine that cuts logs into planks more efficiently than crafting. It produces $(l:thermal:world/plants/tree_products)Sawdust$(/l) as a byproduct."
     },
     {
       "type": "crafting",

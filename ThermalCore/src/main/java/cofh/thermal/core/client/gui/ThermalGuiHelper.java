@@ -124,6 +124,7 @@ public class ThermalGuiHelper {
                 .addSprite(textureExists(specificTexture) ? specificTexture : "thermal:block/cells/cell_top", TRUE)
                 .addSprite(CELL_CONFIG_INPUT, () -> tile.reconfigControl().getSideConfig(UP) == SIDE_INPUT)
                 .addSprite(CELL_CONFIG_OUTPUT, () -> tile.reconfigControl().getSideConfig(UP) == SIDE_OUTPUT)
+                .addSprite(CELL_CONFIG_BOTH, () -> tile.reconfigControl().getSideConfig(UP) == SIDE_BOTH)
                 .setSize(16, 16);
     }
 
@@ -137,6 +138,7 @@ public class ThermalGuiHelper {
                 .addSprite(textureExists(specificTexture) ? specificTexture : "thermal:block/cells/cell_bottom", TRUE)
                 .addSprite(CELL_CONFIG_INPUT, () -> tile.reconfigControl().getSideConfig(DOWN) == SIDE_INPUT)
                 .addSprite(CELL_CONFIG_OUTPUT, () -> tile.reconfigControl().getSideConfig(DOWN) == SIDE_OUTPUT)
+                .addSprite(CELL_CONFIG_BOTH, () -> tile.reconfigControl().getSideConfig(DOWN) == SIDE_BOTH)
                 .setSize(16, 16);
     }
 
@@ -150,6 +152,7 @@ public class ThermalGuiHelper {
                 .addSprite(textureExists(specificTexture) ? specificTexture : "thermal:block/cells/cell_side", TRUE)
                 .addSprite(CELL_CONFIG_INPUT, () -> tile.reconfigControl().getSideConfig(BlockHelper.left(tile.getFacing())) == SIDE_INPUT)
                 .addSprite(CELL_CONFIG_OUTPUT, () -> tile.reconfigControl().getSideConfig(BlockHelper.left(tile.getFacing())) == SIDE_OUTPUT)
+                .addSprite(CELL_CONFIG_BOTH, () -> tile.reconfigControl().getSideConfig(BlockHelper.left(tile.getFacing())) == SIDE_BOTH)
                 .setSize(16, 16);
     }
 
@@ -163,6 +166,7 @@ public class ThermalGuiHelper {
                 .addSprite(textureExists(specificTexture) ? specificTexture : "thermal:block/cells/cell_side", TRUE)
                 .addSprite(CELL_CONFIG_INPUT, () -> tile.reconfigControl().getSideConfig(BlockHelper.right(tile.getFacing())) == SIDE_INPUT)
                 .addSprite(CELL_CONFIG_OUTPUT, () -> tile.reconfigControl().getSideConfig(BlockHelper.right(tile.getFacing())) == SIDE_OUTPUT)
+                .addSprite(CELL_CONFIG_BOTH, () -> tile.reconfigControl().getSideConfig(BlockHelper.right(tile.getFacing())) == SIDE_BOTH)
                 .setSize(16, 16);
     }
 
@@ -178,6 +182,7 @@ public class ThermalGuiHelper {
                 .addSprite(textureExists(specificTexture) ? specificTexture : "thermal:block/cells/cell_side", TRUE)
                 .addSprite(CELL_CONFIG_INPUT, () -> tile.reconfigControl().getSideConfig(tile.getFacing()) == SIDE_INPUT)
                 .addSprite(CELL_CONFIG_OUTPUT, () -> tile.reconfigControl().getSideConfig(tile.getFacing()) == SIDE_OUTPUT)
+                .addSprite(CELL_CONFIG_BOTH, () -> tile.reconfigControl().getSideConfig(tile.getFacing()) == SIDE_BOTH)
                 .setSize(16, 16);
 
         for (int i = 0; i < 9; ++i) {
@@ -199,6 +204,7 @@ public class ThermalGuiHelper {
                 .addSprite(textureExists(specificTexture) ? specificTexture : "thermal:block/cells/cell_side", TRUE)
                 .addSprite(CELL_CONFIG_INPUT, () -> tile.reconfigControl().getSideConfig(BlockHelper.opposite(tile.getFacing())) == SIDE_INPUT)
                 .addSprite(CELL_CONFIG_OUTPUT, () -> tile.reconfigControl().getSideConfig(BlockHelper.opposite(tile.getFacing())) == SIDE_OUTPUT)
+                .addSprite(CELL_CONFIG_BOTH, () -> tile.reconfigControl().getSideConfig(BlockHelper.opposite(tile.getFacing())) == SIDE_BOTH)
                 .setSize(16, 16);
     }
 

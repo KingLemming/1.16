@@ -24,7 +24,7 @@ side = "BOTH"
 [[dependencies.thermal_horizons]]
 modId = "forge"
 mandatory = true
-versionRange = "[31.1.0,)"
+versionRange = "[34.1.40,)"
 ordering = "AFTER"
 side = "BOTH"
 

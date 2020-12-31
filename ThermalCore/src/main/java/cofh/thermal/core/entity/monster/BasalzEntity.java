@@ -1,5 +1,6 @@
 package cofh.thermal.core.entity.monster;
 
+import cofh.thermal.core.common.ThermalConfig;
 import cofh.thermal.core.common.ThermalFlags;
 import cofh.thermal.core.entity.projectile.BasalzProjectileEntity;
 import net.minecraft.entity.EntityType;
@@ -83,7 +84,7 @@ public class BasalzEntity extends MonsterEntity {
     @Override
     protected SoundEvent getAmbientSound() {
 
-        return SOUND_BASALZ_AMBIENT;
+        return ThermalConfig.mobAmbientSounds ? SOUND_BASALZ_AMBIENT : null;
     }
 
     @Override

@@ -196,15 +196,6 @@ public class DeviceRockGenTile extends ThermalTileBase {
     }
     // endregion
 
-    // region ITileCallback
-    @Override
-    public void onControlUpdate() {
-
-        updateActiveState();
-        TileControlPacket.sendToClient(this);
-    }
-    // endregion
-
     // region CAPABILITIES
     @Override
     protected <T> LazyOptional<T> getItemHandlerCapability(@Nullable Direction side) {
@@ -216,4 +207,12 @@ public class DeviceRockGenTile extends ThermalTileBase {
     }
     // endregion
 
+    // region ITileCallback
+    @Override
+    public void onControlUpdate() {
+
+        updateActiveState();
+        TileControlPacket.sendToClient(this);
+    }
+    // endregion
 }
