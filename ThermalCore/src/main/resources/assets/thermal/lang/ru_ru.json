@@ -54,7 +54,7 @@
   "block.thermal.orange_rockwool": "Оранжевая минеральная шерсть",
   "block.thermal.magenta_rockwool": "Фиолетовая минеральная шерсть",
   "block.thermal.light_blue_rockwool": "Голубая минеральная шерсть",
-  "block.thermal.yellow_rockwool": "Желтая минеральная шерсть",
+  "block.thermal.yellow_rockwool": "Жёлтая минеральная шерсть",
   "block.thermal.lime_rockwool": "Лаймовая минеральная шерсть",
   "block.thermal.pink_rockwool": "Розовая минеральная шерсть",
   "block.thermal.gray_rockwool": "Серая минеральная шерсть",
@@ -78,7 +78,7 @@
   "block.thermal.tar_block": "Блок смолы",
 
   "death.attack.basalz": "Мир %1$s перевернулся!",
-  "death.attack.blitz": "%1$s был трагически просветлен!",
+  "death.attack.blitz": "%1$s был трагически просветлён!",
   "death.attack.blizz": "%1$s встретил холодную судьбу!",
 
   "entity.thermal.basalz": "Базальц",
@@ -123,7 +123,7 @@
   "info.thermal.redprint.data.Xfer": "Настройки переноса",
   "info.thermal.redprint.use": "Используйте на блоке, для копирования настроек.",
   "info.thermal.redprint.use.contents": "Используйте на блоке, для применения настроек.",
-  "info.thermal.redprint.use.sneak": "Используюйте крадясь для сброса.",
+  "info.thermal.redprint.use.sneak": "Используйте крадясь для сброса.",
 
   "info.thermal.xp_crystal.mode.0": "Авто-сбор отключён",
   "info.thermal.xp_crystal.mode.1": "Авто-сбор включён",
@@ -195,7 +195,7 @@
   "item.thermal.phytogro": "Фито-Гро",
   "item.thermal.phytogro.desc": "Чрезвычайно сильнодействующее удобрение.",
   "item.thermal.redprint": "Красная печать",
-  "item.thermal.redprint.desc": "Копирует и передает настройки между блоками.",
+  "item.thermal.redprint.desc": "Копирует и передаёт настройки между блоками.",
   "item.thermal.wrench": "Серповидный молот",
   "item.thermal.wrench.desc": "Вращает множество блоков. Также известен как гаечный ключ.",
   "item.thermal.xp_crystal": "Проницательный кристалл",
@@ -297,8 +297,34 @@
   "item.thermal.signalum_nugget": "Кусочек сигналия",
   "item.thermal.signalum_plate": "Сигналовая пластина",
 
+  "subtitle.thermal.block.device_water_gen": "Водный накопитель работает",
+
+  "subtitle.thermal.block.machine_bottler": "Инкапсулятор жидкости заполняет",
+  "subtitle.thermal.block.machine_crucible": "Магмовый тигель гудит",
+  "subtitle.thermal.block.machine_furnace": "Редстоуновая печь гудит и потрескивает",
+  "subtitle.thermal.block.machine_pulverizer": "Измельчитель сокрушает",
+  "subtitle.thermal.block.machine_sawmill": "Лесопилка режет",
+  "subtitle.thermal.block.machine_smelter": "Гудит индукционная плавильня",
+
+  "subtitle.thermal.entity.basalz.ambient": "Базальц дышит",
+  "subtitle.thermal.entity.basalz.death": "Базальц умирает",
+  "subtitle.thermal.entity.basalz.hurt": "Базальц получает урон",
+  "subtitle.thermal.entity.basalz.shoot": "Базальц стреляет",
+
+  "subtitle.thermal.entity.blitz.ambient": "Блитц дышит",
+  "subtitle.thermal.entity.blitz.death": "Блитц умирает",
+  "subtitle.thermal.entity.blitz.hurt": "Блитц получает урон",
+  "subtitle.thermal.entity.blitz.shoot": "Блитц стреляет",
+
+  "subtitle.thermal.entity.blizz.ambient": "Близз дышит",
+  "subtitle.thermal.entity.blizz.death": "Близз умирает",
+  "subtitle.thermal.entity.blizz.hurt": "Близз получает урон",
+  "subtitle.thermal.entity.blizz.shoot": "Близз стреляет",
+
+  "subtitle.thermal.item.magnet": "Магнит работает",
+
   "_comment": "========================================================================================================",
-  "_comment": "Thermal Core - Расширения",
+  "_comment": "Thermal Core - Augments",
   "_comment": "========================================================================================================",
 
   "info.thermal.augment.attr.Depth": "Максимальная глубина",
@@ -307,8 +333,8 @@
 
   "info.thermal.augment.attr.BaseMod": "Коэффициент масштаба",
 
-  "info.thermal.augment.attr.DynamoPower": "Максимальный выход",
   "info.thermal.augment.attr.DynamoEnergy": "Энергия топлива",
+  "info.thermal.augment.attr.DynamoPower": "Максимальный выход",
 
   "info.thermal.augment.attr.FluidMax": "Ёмкость бака",
 
@@ -317,6 +343,7 @@
   "info.thermal.augment.attr.MachinePri": "Основной продукт",
   "info.thermal.augment.attr.MachinePower": "Максимальное потребление",
   "info.thermal.augment.attr.MachineSec": "Вторичный продукт",
+  "info.thermal.augment.attr.MachineSpeed": "Скорость обработки",
   "info.thermal.augment.attr.MachineXp": "Модификатор опыта",
 
   "info.thermal.augment.attr.PotionAmp": "Уровень эффекта",
@@ -328,6 +355,7 @@
   "info.thermal.augment.type.Area": "Эффект области",
   "info.thermal.augment.type.Dynamo": "Генератор",
   "info.thermal.augment.type.Fluid": "Жидкость",
+  "info.thermal.augment.type.Filter": "Фильтр",
   "info.thermal.augment.type.Machine": "Механизм",
   "info.thermal.augment.type.Potion": "Зелье",
   "info.thermal.augment.type.RF": "Redstone Flux",
@@ -339,45 +367,79 @@
   "item.thermal.area_radius_augment": "Радиальное улучшение",
 
   "item.thermal.dynamo_ender_coil_augment": "Частотный тюнер Края",
-  "item.thermal.dynamo_force_coil_augment": "Проекционная решетка луча",
-  "item.thermal.dynamo_steam_coil_augment": "Котел паровой конверсии",
+  "item.thermal.dynamo_force_coil_augment": "Проекционная решётка луча",
+  "item.thermal.dynamo_steam_coil_augment": "Котёл паровой конверсии",
 
   "item.thermal.dynamo_fuel_augment": "Многоцикловые форсунки",
+  "item.thermal.dynamo_fuel_augment.desc": "Повышает экономичность.",
   "item.thermal.dynamo_output_augment": "Вспомогательная реакционная камера",
+  "item.thermal.dynamo_output_augment.desc": "Увеличивает скорость генерации, но снижает эффективность.",
 
   "item.thermal.fluid_tank_augment": "Расширенная конструкция резервуара",
 
+  "item.thermal.fluid_tank_creative_augment": "Творческая конструкция резервуара",
+  "item.thermal.fluid_tank_creative_augment.desc": "Функционально неограниченная жидкость.",
+
+  "item.thermal.dual_filter_augment": "Двойной фильтр",
+  "item.thermal.dual_filter_augment.desc": "Позволяет ограничивать прохождение предметов и жидкостей.",
+  "item.thermal.fluid_filter_augment": "Жидкостный фильтр",
+  "item.thermal.fluid_filter_augment.desc": "Позволяет ограничивать прохождение жидкостей.",
+  "item.thermal.item_filter_augment": "Предметный фильтр",
+  "item.thermal.item_filter_augment.desc": "Позволяет ограничивать прохождение предметов.",
+
   "item.thermal.machine_catalyst_augment": "Каталитическая мелиоративная камера",
+  "item.thermal.machine_catalyst_creative_augment": "Творческая мелиоративная камера",
+  "item.thermal.machine_catalyst_creative_augment.desc": "Катализаторы не используются.",
   "item.thermal.machine_cycle_augment": "Циклическая обработка",
   "item.thermal.machine_cycle_augment.desc": "Продукты могут быть переданы на вход по завершении процесса.",
+  "item.thermal.machine_efficiency_augment": "Потоковая эффективность",
+  "item.thermal.machine_efficiency_augment.desc": "Повышает эффективность использования RF, но снижает скорость процесса.",
+  "item.thermal.machine_efficiency_creative_augment": "Творческая потоковая эффективность",
+  "item.thermal.machine_efficiency_creative_augment.desc": "RF не используется, очень быстрая обработка.",
   "item.thermal.machine_output_augment": "Вспомогательное сито",
   "item.thermal.machine_speed_augment": "Усилитель магнитной связи",
+  "item.thermal.machine_speed_augment.desc": "Увеличивает скорость процесса, но снижает эффективность RF.",
 
   "item.thermal.potion_amplifier_augment": "Алхимический усилитель",
   "item.thermal.potion_duration_augment": "Алхимический расширитель",
 
   "item.thermal.rf_coil_augment": "Расширенная RF катушка",
+
+  "item.thermal.rf_coil_creative_augment": "Творческая RF катушка",
+  "item.thermal.rf_coil_creative_augment.desc": "Функционально неограниченный RF.",
+
   "item.thermal.rf_coil_storage_augment": "Стабилизированная RF катушка",
   "item.thermal.rf_coil_xfer_augment": "Многопоточная RF катушка",
 
+  "item.thermal.rs_control_augment": "Редстоуновый контроль",
+  "item.thermal.rs_control_augment.desc": "Позволяет управлять сигналами красного камня.",
+
+  "item.thermal.side_config_augment": "Модульная реконфигурация",
+  "item.thermal.side_config_augment.desc": "Позволяет настраивать стороны для ввода и вывода.",
+
   "item.thermal.upgrade_augment_1": "Усиленные интегральные компоненты",
-  "item.thermal.upgrade_augment_1.desc": "Улучшает базовые характеристики и усиливает расширения.",
+  "item.thermal.upgrade_augment_1.desc": "Улучшает базовые характеристики. Другие дополнения могут быть более эффективными.",
   "item.thermal.upgrade_augment_2": "Укреплённые интегральные компоненты",
-  "item.thermal.upgrade_augment_2.desc": "Улучшает базовые характеристики и усиливает расширения.",
+  "item.thermal.upgrade_augment_2.desc": "Улучшает базовые характеристики. Другие дополнения могут быть более эффективными.",
   "item.thermal.upgrade_augment_3": "Резонирующие интегральные компоненты",
-  "item.thermal.upgrade_augment_3.desc": "Улучшает базовые характеристики и усиливает расширения.",
+  "item.thermal.upgrade_augment_3.desc": "Улучшает базовые характеристики. Другие дополнения могут быть более эффективными.",
 
   "item.thermal.upgrade_augment_4": "Резонирующие+ интегральные компоненты",
-  "item.thermal.upgrade_augment_4.desc": "Улучшает базовые характеристики и усиливает расширения.",
+  "item.thermal.upgrade_augment_4.desc": "Улучшает базовые характеристики. Другие дополнения могут быть более эффективными.",
+
+  "item.thermal.xp_storage_augment": "Концентратор знаний",
+  "item.thermal.xp_storage_augment.desc": "Позволяет хранить и извлекать опыт.",
 
   "_comment": "========================================================================================================",
   "_comment": "Thermal Core - External",
   "_comment": "These 'live' in Thermal Core but are non-default and registered from multiple possible modules.",
   "_comment": "========================================================================================================",
 
+  "block.thermal.device_collector": "Ваккумулятор",
   "block.thermal.device_hive_extractor": "Воронка пасечника",
+  "block.thermal.device_nullifier": "Аннулятор",
+  "block.thermal.device_potion_diffuser": "Рассеиватель зелий",
   "block.thermal.device_rock_gen": "Вулканический пресс",
-  "block.thermal.device_water_gen": "Водный накопитель",
   "block.thermal.device_tree_extractor": "Древесный выжиматель",
   "block.thermal.device_water_gen": "Водный накопитель",
 
@@ -388,10 +450,26 @@
   "block.thermal.fluid_cell_frame": "Рамка жидкостной ячейки",
 
   "block.thermal.tinker_bench": "Верстак мастеров",
+  "block.thermal.charge_bench": "Энергетический зарядник",
+
+  "info.thermal.device_collector.0": "Подбирает вещи в близлежащей местности.",
+  "info.thermal.device_collector.1": "Конфигурация фильтра будет применяться к этому поведению.",
+  "info.thermal.device_collector.2": "Держите эти полы в чистоте!",
 
   "info.thermal.device_hive_extractor.0": "Тщательно извлекает продукты из ульев.",
   "info.thermal.device_hive_extractor.1": "Хороша как для пчёл, так и для владельцев!",
   "info.thermal.device_hive_extractor.2": "Жужжащая эйфория.",
+
+  "info.thermal.device_nullifier.0": "Уничтожает всё, что в него попадает.",
+  "info.thermal.device_nullifier.1": "Предметы и жидкость, вставленные с помощью автоматики, немедленно уничтожаются.",
+  "info.thermal.device_nullifier.2": "Предметы, вставленные вручную, должны быть уничтожены кнопкой.",
+  "info.thermal.device_nullifier.3": "Можно использовать фильтр, чтобы ограничить то, что принимается.",
+
+  "info.thermal.device_nullifier_empty_bin": "Уничтожить предметы",
+
+  "info.thermal.device_potion_diffuser.0": "Распространяет зелья в окрестностях.",
+  "info.thermal.device_potion_diffuser.1": "Используйте реагенты для повышения эффективности.",
+  "info.thermal.device_potion_diffuser.2": "Дыши глубоко.",
 
   "info.thermal.device_rock_gen.0": "Создаёт различные виды камня.",
   "info.thermal.device_rock_gen.1": "Требует рядом источник лавы и охлаждение.",
@@ -399,11 +477,11 @@
 
   "info.thermal.device_tree_extractor.0": "Извлекает жидкости из соседних деревьев.",
   "info.thermal.device_tree_extractor.1": "Используйте удобрения для увеличения производства.",
-  "info.thermal.device_tree_extractor.2": "Положи топор.",
+  "info.thermal.device_tree_extractor.2": "Опусти топор.",
 
-  "info.thermal.tinker_bench.0": "Универсальный стол для увеличения, подзарядки и заправки.",
-  "info.thermal.tinker_bench.1": "Хранилища можно заполнить, используя соответствующие слоты.",
-  "info.thermal.tinker_bench.2": "Возись дальше!",
+  "info.thermal.device_water_gen.0": "Обеспечивает обильное количество воды.",
+  "info.thermal.device_water_gen.1": "Требуется функционирование соседних источников воды.",
+  "info.thermal.device_water_gen.2": "Не утони.",
 
   "info.thermal.energy_cell.0": "Хранит и передаёт Redstone Flux.",
   "info.thermal.energy_cell.1": "Удерживайте Shift и / или Ctrl для точной настройки количества.",
@@ -417,6 +495,10 @@
 
   "info.thermal.tinker_bench_mode_augment": "Режим: Обновление",
   "info.thermal.tinker_bench_mode_charge": "Режим: Зарядка/Заполнение",
+
+  "info.thermal.charge_bench.0": "Заряжает предметы используя Redstone Flux.",
+  "info.thermal.charge_bench.1": "Предметы могут быть вставлены и убраны автоматизацией.",
+  "info.thermal.charge_bench.2": "Почувствуйте гул.",
 
   "item.thermal.beekeeper_fabric": "Ткань",
   "item.thermal.beekeeper_helmet": "Капюшон пчеловода",
@@ -486,7 +568,7 @@
   "block.thermal.sugar_cane_block": "Блок сахарного тростника",
 
   "block.thermal.apple_block": "Ящик яблок",
-  "block.thermal.beetroot_block": "Ящик свеклы",
+  "block.thermal.beetroot_block": "Ящик свёклы",
   "block.thermal.carrot_block": "Ящик моркови",
   "block.thermal.potato_block": "Ящик картофеля",
 
@@ -603,7 +685,7 @@
   "item.thermal.xp_stew": "Проницательное рагу",
 
   "item.thermal.watering_can": "Лейка",
-  "item.thermal.watering_can.desc": "Ускоряет рост растений при использовании воды.",
+  "item.thermal.watering_can.desc": "Ускоряет рост растений используя воду.",
 
   "_comment": "========================================================================================================",
   "_comment": "Thermal Dynamics",
@@ -628,14 +710,14 @@
   "_comment": "Thermal Expansion",
   "_comment": "========================================================================================================",
 
-  "block.thermal.device_fluid_buffer": "Распределитель жидкости",
-  "block.thermal.device_item_buffer": "Распределитель предметов",
+  "block.thermal.device_fluid_buffer": "Жидкостный буфер",
+  "block.thermal.device_item_buffer": "Предметный буфер",
 
   "block.thermal.dynamo_compression": "Компрессионный генератор",
   "block.thermal.dynamo_lapidary": "Липидарный генератор",
   "block.thermal.dynamo_magmatic": "Магмовый генератор",
   "block.thermal.dynamo_numismatic": "Нумизматический генератор",
-  "block.thermal.dynamo_stirling": "Паровой генератор",
+  "block.thermal.dynamo_stirling": "Стирлигнг генератор",
 
   "block.thermal.machine_bottler": "Инкапсулятор жидкости",
   "block.thermal.machine_brewer": "Алхимическая зельеварка",
@@ -678,8 +760,8 @@
   "info.thermal.dynamo_stirling.0": "Создаёт RF-энергию, используя твёрдое топливо.",
   "info.thermal.dynamo_stirling.1": "Большинство вещей, которые горят в печи, горят и здесь.",
 
-  "info.thermal.machine_bottler.0": "Наполняет емкости жидкостями.",
-  "info.thermal.machine_bottler.1": "Это необходимо для употребления определенных напитков.",
+  "info.thermal.machine_bottler.0": "Наполняет ёмкости жидкостями.",
+  "info.thermal.machine_bottler.1": "Это необходимо для употребления определённых напитков.",
   "info.thermal.machine_bottler.2": "Освежающий!",
 
   "info.thermal.machine_brewer.0": "Варите зелья и наполняйте жидкостью.",
@@ -706,7 +788,7 @@
   "info.thermal.machine_furnace.1": "Использует очень мало энергии для приготовления пищи.",
   "info.thermal.machine_furnace.2": "Ом ном ном.",
 
-  "info.thermal.machine_insolator.0": "Наполняет растения питательными веществами использя Redstone Flux.",
+  "info.thermal.machine_insolator.0": "Наполняет растения питательными веществами используя Redstone Flux.",
   "info.thermal.machine_insolator.1": "Не совсем 'органическое' сельское хозяйство.",
   "info.thermal.machine_insolator.2": "Великолепно раскалённый!",
 
@@ -716,10 +798,10 @@
 
   "info.thermal.machine_pulverizer.0": "Разбивает вещи.",
   "info.thermal.machine_pulverizer.1": "Полезен для обработки руд или преобразования предметов.",
-  "info.thermal.machine_pulverizer.2": "Как правило это необратимо.",
+  "info.thermal.machine_pulverizer.2": "Как правило, это необратимо.",
 
   "info.thermal.machine_pyrolyzer.0": "Разлагает твёрдые вещества при высоких температурах.",
-  "info.thermal.machine_pyrolyzer.1": "Очеь полезен для очистки топлива",
+  "info.thermal.machine_pyrolyzer.1": "Очень полезен для очистки топлива",
   "info.thermal.machine_pyrolyzer.2": "Не обидчивый.",
 
   "info.thermal.machine_refinery.0": "Перерабатывает различные жидкости в другие продукты.",
@@ -730,13 +812,19 @@
   "info.thermal.machine_sawmill.1": "Очень полезна для получения максимальной отдачи от дерева.",
   "info.thermal.machine_sawmill.2": "Следи за своими руками.",
 
+  "info.thermal.machine_smelter.0": "Плавит металлы и вещи, требующие высоких температур.",
+  "info.thermal.machine_smelter.1": "Полезна для обработки руд и создания сложных блоков.",
+  "info.thermal.machine_smelter.2": "Совершенно не будет готовить еду.",
+
   "item.thermal.chiller_ball_cast": "Форма мяча",
+  "item.thermal.chiller_ingot_cast": "Форма слитка",
+  "item.thermal.chiller_rod_cast": "Форма стержня",
 
   "item.thermal.press_coin_die": "Нумизматическая матрица",
   "item.thermal.press_gear_die": "Шестерёночная матрица",
-  "item.thermal.press_packing_2x2_die": "Упаковачная матрица (2x2)",
-  "item.thermal.press_packing_3x3_die": "Упаковачная матрица (3x3)",
-  "item.thermal.press_unpacking_die": "Упаковачная матрица",
+  "item.thermal.press_packing_2x2_die": "Упаковочная матрица (2x2)",
+  "item.thermal.press_packing_3x3_die": "Упаковочная матрица (3x3)",
+  "item.thermal.press_unpacking_die": "Упаковочная матрица",
 
   "_comment": "========================================================================================================",
   "_comment": "Thermal Horizon",
@@ -765,6 +853,9 @@
   "info.thermal.quiver.use": "Используйте, чтобы поместить стрелы в колчан.",
   "info.thermal.quiver.use.sneak": "Используйте крадясь, для вытаскивания стрел.",
 
+  "item.thermal.fluid_reservoir": "Резервуар",
+  "item.thermal.fluid_reservoir.desc": "",
+
   "item.thermal.flux_capacitor": "Потоковый конденсатор",
   "item.thermal.flux_capacitor.desc": "Хранит Redstone Flux и заряжает другие предметы.",
 
@@ -774,11 +865,11 @@
   "item.thermal.flux_magnet": "Потоковый магнит",
   "item.thermal.flux_magnet.desc": "Притягивает предметы к владельцу.",
 
+  "item.thermal.flux_pump": "Жидкостная помпа",
+  "item.thermal.flux_pump.desc": "Переносит жидкости используя Redstone Flux.",
+
   "item.thermal.flux_saw": "Потоковая пила",
   "item.thermal.flux_saw.desc": "Режет блоки, используя Redstone Flux.",
-
-  "item.thermal.flux_pump": "Потоковая помпа",
-  "item.thermal.flux_pump.desc": "Переносит жидкости используя Redstone Flux.",
 
   "item.thermal.potion_infuser": "Зельев шприц",
   "item.thermal.potion_infuser.desc": "Хранит и вливает зелья.",
