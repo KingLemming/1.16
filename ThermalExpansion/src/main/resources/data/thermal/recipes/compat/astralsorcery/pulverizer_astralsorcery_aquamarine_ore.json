@@ -1,11 +1,11 @@
 {
   "type": "thermal:pulverizer",
   "ingredient": {
-    "item": "astralsorcery:aquarmarine_sand_ore"
+    "item": "astralsorcery:aquamarine_sand_ore"
   },
   "result": [
     {
-      "item": "astralsorcery:aquarmarine",
+      "item": "astralsorcery:aquamarine",
       "chance": 6.0
     },
     {
