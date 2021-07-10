@@ -69,12 +69,12 @@
 
   "block.thermal.bitumen_block": "瀝青ブロック",
   "block.thermal.coal_coke_block": "コークスブロック",
-  "block.thermal.sawdust_block": "おがくずブロック",
+  "block.thermal.cured_rubber_block": "硬化ゴムブロック",
+  "block.thermal.rich_slag_block": "上質な鉱滓ブロック",
   "block.thermal.rosin_block": "樹脂ブロック",
   "block.thermal.rubber_block": "ゴムブロック",
-  "block.thermal.cured_rubber_block": "硬化ゴムブロック",
+  "block.thermal.sawdust_block": "おがくずブロック",
   "block.thermal.slag_block": "鉱滓ブロック",
-  "block.thermal.rich_slag_block": "上質な鉱滓ブロック",
   "block.thermal.tar_block": "タールブロック",
 
   "death.attack.basalz": "%1$sは己の世界を揺さぶられた!",
@@ -93,9 +93,12 @@
   "fluid.thermal.biofuel": "グラソリン",
   "fluid.thermal.creosote": "クレオソート",
   "fluid.thermal.crude_oil": "原油",
+  "fluid.thermal.ender": "共振エンダー",
+  "fluid.thermal.glowstone": "活性化グロウストーン",
   "fluid.thermal.heavy_oil": "重油",
   "fluid.thermal.latex": "ラテックス",
   "fluid.thermal.light_oil": "軽油",
+  "fluid.thermal.redstone": "励起レッドストーン",
   "fluid.thermal.refined_fuel": "精製燃料",
   "fluid.thermal.resin": "樹脂",
   "fluid.thermal.sap": "樹液",
@@ -104,10 +107,10 @@
   "fluid.thermal.tree_oil": "ツリーオイル",
 
   "info.thermal.catalysts": "触媒",
-  "info.thermal.energy_mod": "エネルギーモディファイアー",
-  "info.thermal.primary_mod": "主生産物モディファイアー",
-  "info.thermal.secondary_mod": "副生産物モディファイアー",
-  "info.thermal.use_chance": "確率使用",
+  "info.thermal.energy_mod": "エネルギー倍率",
+  "info.thermal.primary_mod": "主産物倍率",
+  "info.thermal.secondary_mod": "副産物倍率",
+  "info.thermal.use_chance": "消費確率",
 
   "info.thermal.detonator.mode.0": "モード: 登録",
   "info.thermal.detonator.mode.1": "モード: 起爆",
@@ -137,19 +140,18 @@
   "item.thermal.biofuel_bucket": "グラソリン入りバケツ",
   "item.thermal.creosote_bucket": "クレオソート入りバケツ",
   "item.thermal.crude_oil_bucket": "原油入りバケツ",
+  "item.thermal.ender_bucket": "共振エンダーパール入りバケツ",
+  "item.thermal.glowstone_bucket": "活性化グロウストーン入りバケツ",
   "item.thermal.heavy_oil_bucket": "重油入りバケツ",
   "item.thermal.latex_bucket": "ラテックス入りバケツ",
   "item.thermal.light_oil_bucket": "軽油入りバケツ",
+  "item.thermal.redstone_bucket": "励起レッドストーン入りバケツ",
   "item.thermal.refined_fuel_bucket": "精製燃料入りバケツ",
   "item.thermal.resin_bucket": "樹脂入りバケツ",
   "item.thermal.sap_bucket": "樹液入りバケツ",
   "item.thermal.seed_oil_bucket": "種油入りバケツ",
   "item.thermal.syrup_bucket": "シロップ入りバケツ",
   "item.thermal.tree_oil_bucket": "ツリーオイル入りバケツ",
-
-  "item.thermal.redstone_bucket": "励起レッドストーン入りバケツ",
-  "item.thermal.glowstone_bucket": "活性化グロウストーン入りバケツ",
-  "item.thermal.ender_bucket": "共振エンダーパール入りバケツ",
 
   "itemGroup.thermal.blocks": "Thermal Series: ブロック",
   "itemGroup.thermal.foods": "Thermal Series: 作物と食料",
@@ -297,6 +299,32 @@
   "item.thermal.signalum_nugget": "シグナルム塊",
   "item.thermal.signalum_plate": "シグナルムのプレート",
 
+  "subtitle.thermal.block.device_water_gen": "水生成機がブクブクと音を立てる",
+
+  "subtitle.thermal.block.machine_bottler": "液体密封機が充填する",
+  "subtitle.thermal.block.machine_crucible": "溶岩るつぼがうなる",
+  "subtitle.thermal.block.machine_furnace": "レッドストーンかまどがうなり、パチパチと音を立てる",
+  "subtitle.thermal.block.machine_pulverizer": "粉砕機が砕く",
+  "subtitle.thermal.block.machine_sawmill": "製材機が切る",
+  "subtitle.thermal.block.machine_smelter": "誘導加熱炉がうなる",
+
+  "subtitle.thermal.entity.basalz.ambient": "バザルツが呼吸をする",
+  "subtitle.thermal.entity.basalz.death": "バザルツが死ぬ",
+  "subtitle.thermal.entity.basalz.hurt": "バザルツがダメージをうける",
+  "subtitle.thermal.entity.basalz.shoot": "バザルツが発射する",
+
+  "subtitle.thermal.entity.blitz.ambient": "ブリッツが呼吸をする",
+  "subtitle.thermal.entity.blitz.death": "ブリッツが死ぬ",
+  "subtitle.thermal.entity.blitz.hurt": "ブリッツがダメージをうける",
+  "subtitle.thermal.entity.blitz.shoot": "ブリッツが発射する",
+
+  "subtitle.thermal.entity.blizz.ambient": "ブリーズが呼吸をする",
+  "subtitle.thermal.entity.blizz.death": "ブリーズが死ぬ",
+  "subtitle.thermal.entity.blizz.hurt": "ブリーズがダメージをうける",
+  "subtitle.thermal.entity.blizz.shoot": "ブリーズが発射する",
+
+  "subtitle.thermal.item.magnet": "フラックスマグネットが引き寄せる",
+
   "_comment": "========================================================================================================",
   "_comment": "Thermal Core - Augments",
   "_comment": "========================================================================================================",
@@ -307,16 +335,17 @@
 
   "info.thermal.augment.attr.BaseMod": "拡縮係数",
 
-  "info.thermal.augment.attr.DynamoPower": "最大出力",
   "info.thermal.augment.attr.DynamoEnergy": "燃料効率",
+  "info.thermal.augment.attr.DynamoPower": "最大出力",
 
   "info.thermal.augment.attr.FluidMax": "タンク容量",
 
   "info.thermal.augment.attr.MachineCat": "触媒消費量",
   "info.thermal.augment.attr.MachineEnergy": "エネルギー消費",
   "info.thermal.augment.attr.MachinePri": "主生産物",
-  "info.thermal.augment.attr.MachinePower": "最大効率",
+  "info.thermal.augment.attr.MachinePower": "基礎充電量",
   "info.thermal.augment.attr.MachineSec": "副次生産物",
+  "info.thermal.augment.attr.MachineSpeed": "最大充電量",
   "info.thermal.augment.attr.MachineXp": "経験値モディファイアー",
 
   "info.thermal.augment.attr.PotionAmp": "効果レベル",
@@ -328,6 +357,7 @@
   "info.thermal.augment.type.Area": "効果範囲",
   "info.thermal.augment.type.Dynamo": "ダイナモ",
   "info.thermal.augment.type.Fluid": "流体",
+  "info.thermal.augment.type.Filter": "フィルター",
   "info.thermal.augment.type.Machine": "マシン",
   "info.thermal.augment.type.Potion": "ポーション",
   "info.thermal.augment.type.RF": "レッドストーンフラックス",
@@ -343,22 +373,51 @@
   "item.thermal.dynamo_steam_coil_augment": "蒸気ボイラー化",
 
   "item.thermal.dynamo_fuel_augment": "複循環燃料噴射装置",
+  "item.thermal.dynamo_fuel_augment.desc": "燃料効率を上昇させます。",
   "item.thermal.dynamo_output_augment": "補助反応室",
+  "item.thermal.dynamo_output_augment.desc": "生成率を上昇させますが、燃料効率は下がります。",
 
   "item.thermal.fluid_tank_augment": "拡張タンク機構",
 
+  "item.thermal.fluid_tank_creative_augment": "クリエイティブタンク構築",
+  "item.thermal.fluid_tank_creative_augment.desc": "機能的な無限の流体",
+
+  "item.thermal.dual_filter_augment": "デュアルフィルター",
+  "item.thermal.dual_filter_augment.desc": "アイテムと流体を限定できます。",
+  "item.thermal.fluid_filter_augment": "流体フィルター",
+  "item.thermal.fluid_filter_augment.desc": "流体を限定できます。",
+  "item.thermal.item_filter_augment": "アイテムフィルター",
+  "item.thermal.item_filter_augment.desc": "アイテムを限定できます。",
+
   "item.thermal.machine_catalyst_augment": "触媒再生室",
+  "item.thermal.machine_catalyst_creative_augment": "クリエイティブ触媒再生室",
+  "item.thermal.machine_catalyst_creative_augment.desc": "触媒を消費しません。  ",
   "item.thermal.machine_cycle_augment": "周期的処理",
   "item.thermal.machine_cycle_augment.desc": "作業完了時に、完成品を入力スロットに移動される場合があります。",
+  "item.thermal.machine_efficiency_augment": "フラックス効率",
+  "item.thermal.machine_efficiency_augment.desc": "RF使用効率を上昇させますが、処理速度が低下します。",
+  "item.thermal.machine_efficiency_creative_augment": "クリエイティブフラックス効率",
+  "item.thermal.machine_efficiency_creative_augment.desc": "RFを消費せず、処理速度を著しく加速させます。",
   "item.thermal.machine_output_augment": "補助処理フィルター",
   "item.thermal.machine_speed_augment": "フラックス結合増幅器",
+  "item.thermal.machine_speed_augment.desc": "処理速度を加速させますが、RF使用効率が低下します。",
 
   "item.thermal.potion_amplifier_augment": "錬金的増幅回路",
   "item.thermal.potion_duration_augment": "錬金的増量剤",
 
   "item.thermal.rf_coil_augment": "拡張RFコイル",
+
+  "item.thermal.rf_coil_creative_augment": "クリエイティブRFコイル",
+  "item.thermal.rf_coil_creative_augment.desc": "機能的な無限のRF",
+
   "item.thermal.rf_coil_storage_augment": "安定RFコイル",
   "item.thermal.rf_coil_xfer_augment": "高フラックスRFコイル",
+
+  "item.thermal.rs_control_augment": "レッドストーン応答機構",
+  "item.thermal.rs_control_augment.desc": "レッドストーン信号による制御を可能にします。",
+
+  "item.thermal.side_config_augment": "モジュラー再調整",
+  "item.thermal.side_config_augment.desc": "側面の搬入出設定を可能にします。",
 
   "item.thermal.upgrade_augment_1": "ハーデンド統合コンポーネント",
   "item.thermal.upgrade_augment_1.desc": "基本属性を改良し、オーグメントを拡張します。",
@@ -370,13 +429,20 @@
   "item.thermal.upgrade_augment_4": "レゾナント+統合コンポーネント",
   "item.thermal.upgrade_augment_4.desc": "基本属性を改良し、オーグメントを拡張します。",
 
+  "item.thermal.xp_storage_augment": "知識濃縮装置",
+  "item.thermal.xp_storage_augment.desc": "経験値の保管と取り出しができるようになります。",
+
   "_comment": "========================================================================================================",
   "_comment": "Thermal Core - External",
   "_comment": "These 'live' in Thermal Core but are non-default and registered from multiple possible modules.",
   "_comment": "========================================================================================================",
 
+  "block.thermal.device_collector": "アイテム吸引器",
   "block.thermal.device_hive_extractor": "巣箱ホッパー",
+  "block.thermal.device_nullifier": "消滅機",
+  "block.thermal.device_potion_diffuser": "浸出散布機",
   "block.thermal.device_rock_gen": "火成岩生成機",
+  "block.thermal.device_soil_infuser": "フィト・ソイル注入機",
   "block.thermal.device_tree_extractor": "木精抽出機",
   "block.thermal.device_water_gen": "水生成器",
 
@@ -387,22 +453,38 @@
   "block.thermal.fluid_cell_frame": "流体セルフレーム",
 
   "block.thermal.tinker_bench": "鍛冶職人の作業台",
+  "block.thermal.charge_bench": "エネルギー充填機",
+
+  "info.thermal.device_collector.0": "周辺のエリアからアイテムを拾います。",
+  "info.thermal.device_collector.1": "この動作にはフィルター設定を適用できます。",
+  "info.thermal.device_collector.2": "床をきれいにしましょう",
 
   "info.thermal.device_hive_extractor.0": "生産物を養蜂箱から慎重に抽出します。",
   "info.thermal.device_hive_extractor.1": "ミツバチにも、養蜂家にも助けとなります。",
   "info.thermal.device_hive_extractor.2": "ブンブンブン",
 
+  "info.thermal.device_nullifier.0": "この中に置かれたものすべてを消滅させます。",
+  "info.thermal.device_nullifier.1": "自動搬入されたアイテムや流体は即座に消滅します。",
+  "info.thermal.device_nullifier.2": "手動で入れられたアイテムは、ボタンを押すまで消滅されません。",
+  "info.thermal.device_nullifier.3": "フィルターを用いて受け入れられる物を制限できます。",
+
+  "info.thermal.device_nullifier_empty_bin": "アイテムを消滅させる",
+
+  "info.thermal.device_potion_diffuser.0": "ポーションを周辺に散布します。",
+  "info.thermal.device_potion_diffuser.1": "試薬を使用して効果を高めることができます。",
+  "info.thermal.device_potion_diffuser.2": "深呼吸しよう",
+
   "info.thermal.device_rock_gen.0": "様々な石を生成します。",
-  "info.thermal.device_rock_gen.1": "溶岩原を隣接させ、冷却する必要があります。",
-  "info.thermal.device_rock_gen.2": "ロックの準備はいい？",
+  "info.thermal.device_rock_gen.1": "隣接する溶岩原と冷却が必要です。",
+  "info.thermal.device_rock_gen.2": "下にあるブロックも生成に影響を及ぼす場合があります。",
+
+  "info.thermal.device_soil_infuser.0": "近くのフィト・ソイルにレッドストーンフラックスを注入します。",
+  "info.thermal.device_soil_infuser.1": "上下一ブロックずつに効果があります。",
+  "info.thermal.device_soil_infuser.2": "作物には実際安全",
 
   "info.thermal.device_tree_extractor.0": "隣接する樹木から流体を抽出します。",
   "info.thermal.device_tree_extractor.1": "肥料を使うと生産効率を増加することが出来ます。",
   "info.thermal.device_tree_extractor.2": "斧を下ろそう。",
-
-  "info.thermal.tinker_bench.0": "拡充・補充・充電に使える多目的なテーブルです。",
-  "info.thermal.tinker_bench.1": "それぞれのスロットからストレージに充填出来ます。",
-  "info.thermal.tinker_bench.2": "さあいじくり倒そう",
 
   "info.thermal.device_water_gen.0": "大量の水を供給します。",
   "info.thermal.device_water_gen.1": "稼働には水源を隣接させる必要があります。",
@@ -414,8 +496,16 @@
   "info.thermal.fluid_cell.0": "流体を溜め、移送します。",
   "info.thermal.fluid_cell.1": "§e§oShift§rと§e§oCtrl§rでより精密に量を調節出来ます。",
 
+  "info.thermal.tinker_bench.0": "拡充・補充・充電に使える多目的なテーブルです。",
+  "info.thermal.tinker_bench.1": "それぞれのスロットからストレージに充填出来ます。",
+  "info.thermal.tinker_bench.2": "さあいじくり倒そう",
+
   "info.thermal.tinker_bench_mode_augment": "モード: オーグメント",
   "info.thermal.tinker_bench_mode_charge": "モード: 充填・充電",
+
+  "info.thermal.charge_bench.0": "RFをアイテムに充填します。",
+  "info.thermal.charge_bench.1": "アイテムを自動的に搬入搬出できます。",
+  "info.thermal.charge_bench.2": "騒音を感じる",
 
   "item.thermal.beekeeper_fabric": "織布",
   "item.thermal.beekeeper_helmet": "養蜂家のフード",
@@ -533,8 +623,6 @@
   "_comment": "Thermal Cultivation",
   "_comment": "========================================================================================================",
 
-  "block.thermal.device_soil_infuser": "フィト・ソイル注入機",
-
   "block.thermal.frost_melon": "フロストメロン",
   "block.thermal.phytosoil": "フィト・ソイル",
   "block.thermal.phytosoil_tilled": "耕されたフィト・ソイル",
@@ -558,10 +646,6 @@
   "block.thermal.strawberry_block": "イチゴクレート",
   "block.thermal.tea_block": "茶葉袋",
   "block.thermal.tomato_block": "トマトクレート",
-
-  "info.thermal.device_soil_infuser.0": "近くのフィト・ソイルにレッドストーンフラックスを注入します。",
-  "info.thermal.device_soil_infuser.1": "上下一ブロックずつに効果があります。",
-  "info.thermal.device_soil_infuser.2": "作物には実際安全",
 
   "item.thermal.barley": "大麦",
   "item.thermal.barley_seeds": "大麦の種",
@@ -693,9 +777,9 @@
   "info.thermal.machine_chiller.1": "流体の場合金型で製品の形状を決めることが出来ます。",
   "info.thermal.machine_chiller.2": "ﾌﾞﾙｯ",
 
-  "info.thermal.machine_crafter.0": "グリッドにアイテムを配置し、クラフトレシピを指定します。",
+  "info.thermal.machine_crafter.0": "グリッドにアイテムを配置してクラフトレシピを決めます。",
   "info.thermal.machine_crafter.1": "あとは確認ボタンを押すだけ!",
-  "info.thermal.machine_crafter.2": "全てのレシピが使えるわけではありません。",
+  "info.thermal.machine_crafter.2": "全てのレシピが使えるとは限りません。",
 
   "info.thermal.machine_crucible.0": "高熱により固体を液体に変換します。",
   "info.thermal.machine_crucible.1": "上位のブロックの作成に有用です。",
@@ -729,7 +813,13 @@
   "info.thermal.machine_sawmill.1": "木材の取り扱いにとても便利です。",
   "info.thermal.machine_sawmill.2": "手に気をつけてください。",
 
+  "info.thermal.machine_smelter.0": "高温を要する、金属などの物質を融解させます。",
+  "info.thermal.machine_smelter.1": "鉱石処理や上位のブロックの作成に有用です。",
+  "info.thermal.machine_smelter.2": "食べ物は絶対に料理できません。",
+
   "item.thermal.chiller_ball_cast": "ボール金型",
+  "item.thermal.chiller_ingot_cast": "インゴット金型",
+  "item.thermal.chiller_rod_cast": "棒金型",
 
   "item.thermal.press_coin_die": "貨幣の打ち抜き型",
   "item.thermal.press_gear_die": "歯車の打ち抜き型",
@@ -763,6 +853,9 @@
   "info.thermal.quiver.mode.1": "自動浸潤有効",
   "info.thermal.quiver.use": "使用すると矢を矢筒に入れます。",
   "info.thermal.quiver.use.sneak": "スニークしながらの使用で矢を取り出します。",
+
+  "item.thermal.fluid_reservoir": "リザーバー",
+  "item.thermal.fluid_reservoir.desc": "",
 
   "item.thermal.flux_capacitor": "RF蓄電池",
   "item.thermal.flux_capacitor.desc": "RFを蓄電し、他のアイテムに充電します。",
