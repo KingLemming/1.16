@@ -9,6 +9,7 @@ import cofh.lib.util.helpers.MathHelper;
 import cofh.lib.xp.XpStorage;
 import cofh.thermal.core.inventory.container.device.DeviceFisherContainer;
 import cofh.thermal.lib.tileentity.DeviceTileBase;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.fluid.FluidState;
@@ -32,6 +33,7 @@ import java.util.function.Predicate;
 
 import static cofh.lib.util.StorageGroup.INPUT;
 import static cofh.lib.util.StorageGroup.OUTPUT;
+import static cofh.lib.util.constants.Constants.FACING_HORIZONTAL;
 import static cofh.lib.util.constants.NBTTags.*;
 import static cofh.lib.util.helpers.AugmentableHelper.getAttributeMod;
 import static cofh.thermal.core.init.TCoreReferences.DEVICE_FISHER_TILE;
@@ -72,26 +74,29 @@ public class DeviceFisherTile extends DeviceTileBase implements ITickableTileEnt
     @Override
     protected void updateValidity() {
 
+        // TODO: Check on rotation; adjust formula.
+
         if (world == null || !world.isAreaLoaded(pos, 1) || Utils.isClientWorld(world)) {
             return;
         }
-        int adjWaterSource = 0;
+        int facingWater = 0;
         valid = false;
 
-        BlockPos[] cardinals = new BlockPos[]{
-                pos.down(),
-                pos.north(),
-                pos.south(),
-                pos.west(),
-                pos.east(),
-        };
-        for (BlockPos adj : cardinals) {
-            FluidState state = world.getFluidState(adj);
-            if (state.getFluid().equals(Fluids.WATER)) {
-                ++adjWaterSource;
+        BlockState myState = getBlockState();
+        BlockPos facePos = pos.offset(myState.get(FACING_HORIZONTAL));
+        FluidState state = world.getFluidState(facePos);
+
+        if (state.getFluid().equals(Fluids.WATER)) {
+            BlockPos areaPos = pos.offset(myState.get(FACING_HORIZONTAL), 2);
+            Iterable<BlockPos> area = BlockPos.getAllInBoxMutable(areaPos.add(-1, 0, -1), areaPos.add(1, 0, 1));
+            for (BlockPos scan : area) {
+                state = world.getFluidState(scan);
+                if (state.getFluid().equals(Fluids.WATER)) {
+                    ++facingWater;
+                }
             }
+            valid = facingWater >= 6;
         }
-        valid = adjWaterSource > 1;
         cached = true;
     }
 
@@ -156,13 +161,7 @@ public class DeviceFisherTile extends DeviceTileBase implements ITickableTileEnt
             return TIME_CONSTANT;
         }
         int constant = TIME_CONSTANT;
-        Iterable<BlockPos> area = BlockPos.getAllInBoxMutable(pos.add(-radius, 1 - radius, -radius), pos.add(radius, 0, radius));
-        for (BlockPos scan : area) {
-            FluidState state = world.getFluidState(scan);
-            if (state.getFluid().equals(Fluids.WATER)) {
-                constant -= 40;
-            }
-        }
+
         boolean isOcean = Utils.hasBiomeType(world, pos, BiomeDictionary.Type.OCEAN);
         boolean isRiver = Utils.hasBiomeType(world, pos, BiomeDictionary.Type.RIVER);
         boolean isRaining = world.isRainingAt(pos);
@@ -175,6 +174,16 @@ public class DeviceFisherTile extends DeviceTileBase implements ITickableTileEnt
         }
         if (isRaining) {
             constant /= 2;
+        }
+        BlockState myState = getBlockState();
+        BlockPos areaPos = pos.offset(myState.get(FACING_HORIZONTAL), radius);
+        Iterable<BlockPos> area = BlockPos.getAllInBoxMutable(areaPos.add(-radius, 1 - radius, -radius), areaPos.add(radius, 0, radius));
+
+        for (BlockPos scan : area) {
+            FluidState state = world.getFluidState(scan);
+            if (state.getFluid().equals(Fluids.WATER)) {
+                constant -= 40;
+            }
         }
         return MathHelper.clamp(constant, TIME_CONSTANT / 20, TIME_CONSTANT);
     }

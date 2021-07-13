@@ -365,7 +365,7 @@ public class Utils {
 
     public static int getItemEnchantmentLevel(Enchantment ench, ItemStack stack) {
 
-        if (ench instanceof EnchantmentCoFH && !((EnchantmentCoFH) ench).isEnabled()) {
+        if (ench == null || ench instanceof EnchantmentCoFH && !((EnchantmentCoFH) ench).isEnabled()) {
             return 0;
         }
         return getEnchantmentLevel(ench, stack);
@@ -373,7 +373,7 @@ public class Utils {
 
     public static int getHeldEnchantmentLevel(LivingEntity living, Enchantment ench) {
 
-        if (ench instanceof EnchantmentCoFH && !((EnchantmentCoFH) ench).isEnabled()) {
+        if (ench == null || ench instanceof EnchantmentCoFH && !((EnchantmentCoFH) ench).isEnabled()) {
             return 0;
         }
         return Math.max(getEnchantmentLevel(ench, living.getHeldItemMainhand()), getEnchantmentLevel(ench, living.getHeldItemOffhand()));
@@ -381,7 +381,7 @@ public class Utils {
 
     public static int getMaxEquippedEnchantmentLevel(LivingEntity living, Enchantment ench) {
 
-        if (ench instanceof EnchantmentCoFH && !((EnchantmentCoFH) ench).isEnabled()) {
+        if (ench == null || ench instanceof EnchantmentCoFH && !((EnchantmentCoFH) ench).isEnabled()) {
             return 0;
         }
         return getMaxEnchantmentLevel(ench, living);

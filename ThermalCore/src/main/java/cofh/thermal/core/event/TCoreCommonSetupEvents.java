@@ -75,7 +75,7 @@ public class TCoreCommonSetupEvents {
 
     // Recipes reload during TagsUpdatedEvent or IdMapping on Server side.
     @SubscribeEvent
-    public static void tagsUpdated(final TagsUpdatedEvent.VanillaTagTypes event) {
+    public static void tagsUpdated(final TagsUpdatedEvent.CustomTagTypes event) {
 
         ThermalRecipeManagers.instance().refreshServer();
     }

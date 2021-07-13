@@ -3,29 +3,29 @@ package cofh.thermal.core.util.managers.device;
 import cofh.lib.inventory.FalseIInventory;
 import cofh.lib.util.ComparableItemStack;
 import cofh.thermal.core.init.TCoreRecipeTypes;
-import cofh.thermal.core.util.recipes.device.PotionDiffuserBoost;
+import cofh.thermal.core.util.recipes.device.FisherBoost;
 import cofh.thermal.lib.util.managers.AbstractManager;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.RecipeManager;
 import net.minecraft.util.ResourceLocation;
-import org.apache.commons.lang3.tuple.Triple;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Map;
 
-public class PotionDiffuserManager extends AbstractManager {
+public class FisherManager extends AbstractManager {
 
-    private static final PotionDiffuserManager INSTANCE = new PotionDiffuserManager();
+    private static final FisherManager INSTANCE = new FisherManager();
 
-    protected Map<ComparableItemStack, Triple<Integer, Integer, Float>> boostMap = new Object2ObjectOpenHashMap<>();
+    protected Map<ComparableItemStack, Pair<Integer, Float>> boostMap = new Object2ObjectOpenHashMap<>();
 
-    protected PotionDiffuserManager() {
+    protected FisherManager() {
 
-        super(16);
+        super(4);
     }
 
-    public static PotionDiffuserManager instance() {
+    public static FisherManager instance() {
 
         return INSTANCE;
     }
@@ -41,10 +41,10 @@ public class PotionDiffuserManager extends AbstractManager {
         return boostMap.containsKey(convert(item));
     }
 
-    public void addBoost(PotionDiffuserBoost boost) {
+    public void addBoost(FisherBoost boost) {
 
         for (ItemStack ingredient : boost.getIngredient().getMatchingStacks()) {
-            boostMap.put(convert(ingredient), Triple.of(boost.getCycles(), boost.getAmplifier(), boost.getDurationMod()));
+            boostMap.put(convert(ingredient), Pair.of(boost.getCycles(), boost.getOutputMod()));
         }
     }
 
@@ -53,14 +53,9 @@ public class PotionDiffuserManager extends AbstractManager {
         return validBoost(item) ? boostMap.get(convert(item)).getLeft() : 0;
     }
 
-    public int getBoostAmplifier(ItemStack item) {
+    public float getBoostOutputMod(ItemStack item) {
 
-        return validBoost(item) ? boostMap.get(convert(item)).getMiddle() : 0;
-    }
-
-    public float getBoostDurationMod(ItemStack item) {
-
-        return validBoost(item) ? boostMap.get(convert(item)).getRight() : 0.0F;
+        return validBoost(item) ? boostMap.get(convert(item)).getRight() : 1.0F;
     }
     // endregion
 
@@ -74,9 +69,9 @@ public class PotionDiffuserManager extends AbstractManager {
     public void refresh(RecipeManager recipeManager) {
 
         clear();
-        Map<ResourceLocation, IRecipe<FalseIInventory>> boosts = recipeManager.getRecipes(TCoreRecipeTypes.BOOST_POTION_DIFFUSER);
+        Map<ResourceLocation, IRecipe<FalseIInventory>> boosts = recipeManager.getRecipes(TCoreRecipeTypes.BOOST_FISHER);
         for (Map.Entry<ResourceLocation, IRecipe<FalseIInventory>> entry : boosts.entrySet()) {
-            addBoost((PotionDiffuserBoost) entry.getValue());
+            addBoost((FisherBoost) entry.getValue());
         }
     }
     // endregion

@@ -1,10 +1,7 @@
 package cofh.thermal.core.init;
 
 import cofh.lib.util.recipes.SerializableRecipeType;
-import cofh.thermal.core.util.recipes.device.PotionDiffuserBoost;
-import cofh.thermal.core.util.recipes.device.RockGenMapping;
-import cofh.thermal.core.util.recipes.device.TreeExtractorBoost;
-import cofh.thermal.core.util.recipes.device.TreeExtractorMapping;
+import cofh.thermal.core.util.recipes.device.*;
 import cofh.thermal.core.util.recipes.dynamo.*;
 import cofh.thermal.core.util.recipes.machine.*;
 import net.minecraft.util.ResourceLocation;
@@ -55,11 +52,13 @@ public class TCoreRecipeTypes {
     // region DEVICES
     public static final ResourceLocation ID_MAPPING_TREE_EXTRACTOR = new ResourceLocation(ID_THERMAL, "tree_extractor");
     public static final ResourceLocation ID_BOOST_TREE_EXTRACTOR = new ResourceLocation(ID_THERMAL, "tree_extractor_boost");
+    public static final ResourceLocation ID_BOOST_FISHER = new ResourceLocation(ID_THERMAL, "fisher_boost");
     public static final ResourceLocation ID_MAPPING_ROCK_GEN = new ResourceLocation(ID_THERMAL, "rock_gen");
     public static final ResourceLocation ID_BOOST_POTION_DIFFUSER = new ResourceLocation(ID_THERMAL, "potion_diffuser_boost");
 
     public static final SerializableRecipeType<TreeExtractorMapping> MAPPING_TREE_EXTRACTOR = new SerializableRecipeType<>(ID_MAPPING_TREE_EXTRACTOR);
     public static final SerializableRecipeType<TreeExtractorBoost> BOOST_TREE_EXTRACTOR = new SerializableRecipeType<>(ID_BOOST_TREE_EXTRACTOR);
+    public static final SerializableRecipeType<FisherBoost> BOOST_FISHER = new SerializableRecipeType<>(ID_BOOST_FISHER);
     public static final SerializableRecipeType<RockGenMapping> MAPPING_ROCK_GEN = new SerializableRecipeType<>(ID_MAPPING_ROCK_GEN);
     public static final SerializableRecipeType<PotionDiffuserBoost> BOOST_POTION_DIFFUSER = new SerializableRecipeType<>(ID_BOOST_POTION_DIFFUSER);
     // endregion
